@@ -1,0 +1,96 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "DEBUG: Clean",
+			"type": "shell",
+			"command": "make -f LinuxDebug.mak clean",
+			"windows": {
+				"command": "/c/cppdev/msys/bin/make.exe -f WinDebug.mak clean",
+			},
+			"group": "build",
+			"presentation": {
+				"reveal": "always"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "DEBUG: Build",
+			"type": "shell",
+			"command": "make -f LinuxDebug.mak all",
+			"windows": {
+				"command": "/c/cppdev/msys/bin/make.exe -f WinDebug.mak all",
+			},
+			"group": "build",
+			"presentation": {
+				"reveal": "always"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "DEBUG: Clean Build",
+			"type": "shell",
+			"command": "make -f LinuxDebug.mak clean all",
+			"windows": {
+				"command": "/c/cppdev/msys/bin/make.exe -f WinDebug.mak clean all",
+			},
+			"group": "build",
+			"presentation": {
+				"reveal": "always"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "DOCS: Doxygen Build",
+			"type": "shell",
+			"command": "make -f LinuxDocs.mak doxygen-build",
+			"windows": {
+				"command": "/c/cppdev/msys/bin/make.exe -f WinDocs.mak doxygen-build",
+			},
+			"group": "build",
+			"presentation": {
+				"reveal": "silent"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "DOCS: Doxygen Open",
+			"type": "shell",
+			"command": "make -f LinuxDocs.mak doxygen-open",
+			"windows": {
+				"command": "/c/cppdev/msys/bin/make.exe -f WinDocs.mak doxygen-open",
+			},
+			"group": "build",
+			"presentation": {
+				"reveal": "silent"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "DOCS: Count Lines",
+			"type": "shell",
+			"command": "make -f LinuxDocs.mak cloc",
+			"windows": {
+				"command": "/c/cppdev/msys/bin/make.exe -f WinDocs.mak cloc",
+			},
+			"group": "build",
+			"presentation": {
+				"reveal": "always"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "RELEASE: FULL BUILD",
+			"type": "shell",
+			"command": "make -f LinuxRelease.mak clean all zip",
+			"windows": {
+				"command": "/c/cppdev/msys/bin/make.exe -f WinRelease.mak clean all reshack zip",
+			},
+			"group": "build",
+			"presentation": {
+				"reveal": "silent"
+			},
+			"problemMatcher": []
+		}
+	]
+}
