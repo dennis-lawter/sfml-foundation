@@ -23,7 +23,7 @@ void GameText::setTexts() {
 
 	texts.clear();
 	while (std::getline(stringStream, temp, '\n')) {
-		texts.emplace_back(temp, resources::font, 80U);
+		// texts.emplace_back(temp, resources::font, 80U);
 	}
 	stringStream.clear();
 	stringStream.str("");

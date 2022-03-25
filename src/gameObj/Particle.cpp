@@ -36,7 +36,7 @@ void Particle::update() {
 ParticleText::ParticleText(ParticleAttributeList attributes, string text)
 	:Particle(attributes) {
 		this->text.setFillColor(attributes.initialColor);
-		this->text.setFont(resources::font);
+		// this->text.setFont(resources::font);
 		this->text.setCharacterSize(80);
 		this->text.setScale(.05f, .05f);
 		this->text.setString(text);
@@ -58,8 +58,8 @@ void ParticleText::draw(RenderWindow& window) {
 
 
 ParticleObject::ParticleObject(ParticleAttributeList attributes)
-	:GameObject(resources::textures["particle"], attributes.position.x, attributes.position.y),
-	Particle(attributes) {
+	// :GameObject(resources::textures["particle"], attributes.position.x, attributes.position.y),
+	: Particle(attributes) {
 	sprite.setColor(initialColor);
 	sprite.setScale(initScaleFactor, initScaleFactor);
 }

@@ -3,8 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "../resources.hh"
-#include "../score.hh"
 #include "../util.hh"
 
 using namespace sf;
@@ -15,7 +13,7 @@ protected:
 public:
 	float speed;
 
-	GameObject(Texture& texture, float x, float y);
+	GameObject();
 
 	void update();
 	void draw(sf::RenderWindow& window);

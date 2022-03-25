@@ -1,28 +1,19 @@
 #ifndef GAMESTATE_HPP_
 #define GAMESTATE_HPP_
 #include <SFML/Graphics.hpp>
-#include "../GameText.hpp"
-#include "../resources.hh"
-#include "../score.hh"
-#include "../util.hh"
-using namespace sf;
+#include "../defines.hh"
 
 class GameState {
 public:
 	enum State {
-		Title,
-		GamePlay,
-		GameOver,
-		Attract,
-		ShowScore,
-		EnterInitials
+		Loading
 	};
 
 	bool isEnding = false;
 
-	virtual void processInput(Event& event) = 0;
-	virtual void update(RenderWindow& window) = 0;
-	virtual void draw(RenderWindow& window) = 0;
+	virtual void processInput(sf::Event& event) = 0;
+	virtual void update(sf::RenderWindow& window) = 0;
+	virtual void draw(sf::RenderWindow& window) = 0;
 
 	virtual ~GameState() {}
 };

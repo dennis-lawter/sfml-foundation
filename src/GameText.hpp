@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "resources.hh"
 using namespace sf;
 using namespace std;
 

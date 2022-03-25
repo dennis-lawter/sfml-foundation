@@ -1,7 +1,7 @@
 #include "GameObject.hpp"
-GameObject::GameObject(Texture& texture, float x, float y) {
-	this->sprite.setTexture(texture);
-	this->sprite.move(x, y);
+GameObject::GameObject() {
+	// this->sprite.setTexture(texture);
+	// this->sprite.move(x, y);
 }
 
 void GameObject::draw(sf::RenderWindow& window) {
