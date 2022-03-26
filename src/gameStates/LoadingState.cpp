@@ -10,6 +10,8 @@ LoadingState::LoadingState() {
 
 	// initiate loading threads
 	textures::load();
+	sounds::load();
+	fonts::load();
 }
 
 void LoadingState::processInput(sf::Event& event) {

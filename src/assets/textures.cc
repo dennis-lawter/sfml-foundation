@@ -7,10 +7,10 @@ namespace textures {
 	bool loaded = false;
 	std::thread loadingThread;
 
-	const std::string TEXTURE_META_FILE = "resource/meta/texture.json";
+	const std::string TEXTURES_META_FILE = "resource/meta/textures.json";
 
 	void performLoading() {
-		std::ifstream inStream (textures::TEXTURE_META_FILE, std::ifstream::in);
+		std::ifstream inStream (textures::TEXTURES_META_FILE, std::ifstream::in);
 		nlohmann::json textureJson = nlohmann::json::parse(inStream);
 
 		for (auto& textureDefinition : textureJson.items()) {

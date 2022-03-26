@@ -3,6 +3,8 @@
 #include "GameState.hpp"
 #include "../util.hh"
 #include "../assets/textures.hh"
+#include "../assets/sounds.hh"
+#include "../assets/fonts.hh"
 
 class LoadingState : public GameState {
 private:
