@@ -15,7 +15,7 @@ namespace util {
 	}
 
 	void setRandomSeed() {
-		srand (time(NULL));
+		srand(time(NULL));
 	}
 
 	void setSeed(unsigned int seed) {
@@ -41,5 +41,18 @@ namespace util {
 		c.b = rangedRand(0, 255);
 		c.a = 255;
 		return c;
+	}
+
+	sf::ConvexShape createConvexShape(std::vector<int> map) {
+		sf::ConvexShape create;
+		int largest = 0;
+		create.setPointCount(map.size() / 2);
+		for (unsigned int i = 0; i < (map.size() / 2); i++) {
+			create.setPoint(0 + i, sf::Vector2f(map[0 + (i * 2)], map[1 + (i * 2)]));
+			largest = (map[0 + (i * 2)] > largest) ? map[0 + (i * 2)] : largest;
+			largest = (map[1 + (i * 2)] > largest) ? map[1 + (i * 2)] : largest;
+		}
+		create.setOrigin(sf::Vector2f((largest / 2.f), (largest / 2.f)));
+		return create;
 	}
 }

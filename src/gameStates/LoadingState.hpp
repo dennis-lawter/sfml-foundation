@@ -1,6 +1,7 @@
 #ifndef LOADINGSTATE_HPP_
 #define LOADINGSTATE_HPP_
 #include "GameState.hpp"
+#include "../util.hh"
 #include "../assets/textures.hh"
 
 class LoadingState : public GameState {
