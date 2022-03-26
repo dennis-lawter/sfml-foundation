@@ -2,14 +2,14 @@
 #define LOADINGSTATE_HPP_
 #include "generic/GameState.hpp"
 #include "../util.hh"
-#include "../assets/textures.hh"
-#include "../assets/sounds.hh"
-#include "../assets/fonts.hh"
+#include "../assets/assets.hh"
 
 class LoadingState : public GameState {
 private:
+	const int LOAD_MIN = 60;
 	sf::RectangleShape loadingRectangle;
 	sf::ConvexShape defenderSil;
+	int timer = 0;
 public:
 	LoadingState();
 
