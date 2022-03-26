@@ -7,6 +7,7 @@
 class GameState {
 public:
 	enum State {
+		SplashLogo,
 		Loading
 	};
 

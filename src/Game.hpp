@@ -1,8 +1,8 @@
 #ifndef GAME_HPP_
 #define GAME_HPP_
-#include <exception>
 #include "defines.hh"
 #include "gameStates/LoadingState.hpp"
+#include "gameStates/SplashLogoState.hpp"
 
 class Game {
 private:

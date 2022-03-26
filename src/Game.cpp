@@ -90,8 +90,13 @@ void Game::update() {
 		switch (this->currentGameState) {
 		case GameState::Loading:
 			delete this->gameState;
-			this->gameState = new LoadingState();
-			this->currentGameState = GameState::Loading;
+			this->gameState = new SplashLogoState();
+			this->currentGameState = GameState::SplashLogo;
+			break;
+		case GameState::SplashLogo:
+			delete this->gameState;
+			this->gameState = new SplashLogoState();
+			this->currentGameState = GameState::SplashLogo;
 			break;
 		default:
 			throw std::runtime_error("Invalid game state");
@@ -105,6 +110,6 @@ void Game::draw() {
 	this->window.draw(this->background);
 
 	this->gameState->draw(this->window);
-	
+
 	this->window.display();
 }

@@ -22,7 +22,7 @@ void LoadingState::update(sf::RenderWindow& window) {
 			sounds::loaded &&
 			fonts::loaded
 		) {
-			return;
+			this->isEnding = true;
 		}
 	}
 	

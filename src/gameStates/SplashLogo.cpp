@@ -1,1 +1,0 @@
-#include "SplashLogo.hpp"
