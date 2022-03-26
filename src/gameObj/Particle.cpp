@@ -33,7 +33,7 @@ void Particle::update() {
 }
 
 
-ParticleText::ParticleText(ParticleAttributeList attributes, string text)
+ParticleText::ParticleText(ParticleAttributeList attributes, std::string text)
 	:Particle(attributes) {
 		this->text.setFillColor(attributes.initialColor);
 		// this->text.setFont(resources::font);

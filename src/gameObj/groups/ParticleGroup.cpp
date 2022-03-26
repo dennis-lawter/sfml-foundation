@@ -4,7 +4,7 @@ void ParticleGroup::createParticleObject(ParticleAttributeList attributes) {
 	particleObjects.emplace_back(attributes);
 }
 
-void ParticleGroup::createParticleText(string text, Vector2f pos, Color color) {
+void ParticleGroup::createParticleText(std::string text, sf::Vector2f pos, sf::Color color) {
 	Color finalColor = color;
 	finalColor.a = 0;
 	ParticleAttributeList attributes {

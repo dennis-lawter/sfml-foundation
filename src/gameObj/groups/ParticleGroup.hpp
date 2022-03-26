@@ -4,11 +4,11 @@
 
 class ParticleGroup {
 private:
-	vector<ParticleObject> particleObjects;
-	vector<ParticleText> particleTexts;
+	std::vector<ParticleObject> particleObjects;
+	std::vector<ParticleText> particleTexts;
 public:
 	void createParticleObject(ParticleAttributeList particle);
-	void createParticleText(string text, Vector2f pos, Color color);
+	void createParticleText(std::string text, sf::Vector2f pos, sf::Color color);
 
 	void update();
 	void draw(RenderWindow& window);	

@@ -31,7 +31,7 @@ class ParticleText : public Particle {
 private:
 	Text text;
 public:
-	ParticleText(ParticleAttributeList attributes, string text);
+	ParticleText(ParticleAttributeList attributes, std::string text);
 
 	void update();
 	void draw(RenderWindow& window);
