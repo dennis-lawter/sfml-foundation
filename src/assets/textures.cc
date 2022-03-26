@@ -13,14 +13,10 @@ namespace textures {
 		std::ifstream inStream (textures::TEXTURE_META_FILE, std::ifstream::in);
 		nlohmann::json textureJson = nlohmann::json::parse(inStream);
 
-		// std::this_thread::sleep_for(std::chrono::seconds(5));
-
 		for (auto& textureDefinition : textureJson.items()) {
 			std::string key = textureDefinition.key();
 			nlohmann::json data = textureDefinition.value();
 			std::string dataFile = data["file"];
-			// int dataWidth = data["width"];
-			// int dataHeight = data["height"];
 			textures::assets.emplace(key, sf::Texture{});
 			textures::assets[key].loadFromFile(dataFile);
 		}

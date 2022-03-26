@@ -1,7 +1,5 @@
 {
 	"player": {
-		"file": "resource/texture/player.png",
-		"width": 16,
-		"height": 16
+		"file": "resource/texture/player.png"
 	}
 }
