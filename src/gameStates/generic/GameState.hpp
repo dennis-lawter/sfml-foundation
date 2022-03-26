@@ -1,6 +1,7 @@
 #ifndef GAMESTATE_HPP_
 #define GAMESTATE_HPP_
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "../../defines.hh"
 #include "../../assets/assets.hh"
 #include "../../util.hh"
