@@ -1,22 +1,32 @@
 #include "SplashLogoState.hpp"
 
 SplashLogoState::SplashLogoState() {
+	initialColor = sf::Color(0xFFFFFF00);
+	finalColor = sf::Color(0xFFFFFFFF);
+	currentColor = initialColor;
+
+	initialScale = { 4.f, 4.f };
+	curretScale = initialScale;
+
 	logo.setTexture(textures::assets["bitonicsoftlogo"]);
-	logo.setScale(4.f, 4.f);
-	logo.setOrigin(8.f, 8.f);
-	logo.setPosition(defines::WIDTH / 2.f, 80.f);
+	logo.setScale(initialScale);
+	logo.setOrigin(8.f, 16.f);
+	logo.setPosition(defines::WIDTH / 2.f, 100.f);
+	logo.setColor(initialColor);
 
 	bitonic.setText("BitonicSoft");
 	bitonic.setHAlign(GameText::CENTER);
 	bitonic.setVAlign(GameText::MIDDLE);
 	bitonic.setSize(GameText::TITLE);
 	bitonic.setPosition({ defines::WIDTH / 2.f, 130.f });
+	bitonic.setColor(initialColor);
 
 	us.setText("Dennis Lawter\tBryan Barreto\tJames de Mattos");
 	us.setHAlign(GameText::CENTER);
 	us.setVAlign(GameText::MIDDLE);
 	us.setSize(GameText::LARGE);
 	us.setPosition({ defines::WIDTH / 2.f, 180.f });
+	us.setColor(initialColor);
 }
 
 void SplashLogoState::processInput(sf::Event& event) {
@@ -24,7 +34,22 @@ void SplashLogoState::processInput(sf::Event& event) {
 }
 
 void SplashLogoState::update(sf::RenderWindow& window) {
+	if (timer < FADE_IN_MAX) {
+		float fadeProgress = timer / (float)FADE_IN_MAX;
+		currentColor.a = util::lerp(initialColor.a, finalColor.a, fadeProgress);
 
+		logo.setColor(currentColor);
+		bitonic.setColor(currentColor);
+		us.setColor(currentColor);
+	} else if (timer < STRETCH_WIDE) {
+		float stretchProgress = (timer  - FADE_IN_MAX) / (float)(STRETCH_WIDE  - FADE_IN_MAX);
+		curretScale.x = util::lerp(initialScale.x, WIDE_SCALE.x, stretchProgress);
+		curretScale.y = util::lerp(initialScale.y, WIDE_SCALE.y, stretchProgress);
+
+		logo.setScale(curretScale);
+	} 
+
+	timer++;
 }
 
 void SplashLogoState::draw(sf::RenderWindow& window) {

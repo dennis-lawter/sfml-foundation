@@ -14,6 +14,7 @@ GameText::GameText() {
 	this->hAlign = GameText::LEFT;
 	this->vAlign = GameText::TOP;
 	this->stringStream.clear();
+	this->color = sf::Color::White;
 }
 
 void GameText::setTexts() {
@@ -28,6 +29,12 @@ void GameText::setTexts() {
 	stringStream.clear();
 	stringStream.str("");
 	stringStream << keepValue;
+}
+
+void GameText::setInternalColor() {
+	for (sf::Text& text : this->texts) {
+		text.setColor(this->color);
+	}
 }
 
 void GameText::setInternalOrigin() {
@@ -86,15 +93,15 @@ void GameText::setLinePositions() {
 	sf::Vector2f tempPosition = this->position;
 	for (sf::Text& text : texts) {
 		sf::FloatRect localBounds = text.getLocalBounds();
-		switch(hAlign){
+		switch (hAlign) {
 		case LEFT:
 			tempPosition.x = this->position.x;
 			break;
 		case CENTER:
-			tempPosition.x = this->position.x - scale*(localBounds.width-widestLine)/2.f;
+			tempPosition.x = this->position.x - scale * (localBounds.width - widestLine) / 2.f;
 			break;
 		case RIGHT:
-			tempPosition.x = this->position.x - scale*(localBounds.width-widestLine);
+			tempPosition.x = this->position.x - scale * (localBounds.width - widestLine);
 			break;
 		}
 		tempPosition.y += heightOffset;
@@ -105,6 +112,7 @@ void GameText::setLinePositions() {
 
 void GameText::reRender() {
 	setTexts();
+	setInternalColor();
 	setInternalOrigin();
 	setInternalScale();
 	setLinePositions();
@@ -117,6 +125,11 @@ void GameText::setText(std::string s) {
 	this->stringStream.str("");
 	this->stringStream << s;
 	this->dirty = true;
+}
+
+void GameText::setColor(sf::Color newColor) {
+	this->color = newColor;
+	setInternalColor();
 }
 
 void GameText::appendText(std::string s) {

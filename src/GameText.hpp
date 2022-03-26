@@ -35,6 +35,7 @@ private:
 	Size size;
 	HAlign hAlign;
 	VAlign vAlign;
+	sf::Color color;
 	float verticalSpacing = 1.0f;
 	bool dirty = false;
 
@@ -42,6 +43,7 @@ private:
 	float totalHeight = 0.f;
 
 	void setTexts();
+	void setInternalColor();
 	void setInternalOrigin();
 	void setInternalScale();
 	void setLinePositions();
@@ -56,6 +58,7 @@ public:
 	Size getSize();
 
 	void setPosition(sf::Vector2f position);
+	void setColor(sf::Color newColor);
 	void setSize(Size size);
 	void setHAlign(HAlign align);
 	void setVAlign(VAlign align);
