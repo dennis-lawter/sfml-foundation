@@ -33,7 +33,7 @@ void GameText::setTexts() {
 
 void GameText::setInternalColor() {
 	for (sf::Text& text : this->texts) {
-		text.setColor(this->color);
+		text.setFillColor(this->color);
 	}
 }
 
