@@ -1,8 +1,8 @@
 #include "GameText.hpp"
 
-map<GameText::Size, float> scaleFactor = {
+std::map<GameText::Size, float> scaleFactor = {
 	{GameText::TITLE, .12f},
-	{GameText::HUGE, .10f},
+	{GameText::XL, .10f},
 	{GameText::LARGE, .08f},
 	{GameText::MEDIUM, .05f},
 	{GameText::SMALL, .03f}
@@ -17,13 +17,13 @@ GameText::GameText() {
 }
 
 void GameText::setTexts() {
-	string temp;
-	string keepValue = stringStream.str();
+	std::string temp;
+	std::string keepValue = stringStream.str();
 	stringStream << "\n";
 
 	texts.clear();
 	while (std::getline(stringStream, temp, '\n')) {
-		// texts.emplace_back(temp, resources::font, 80U);
+		texts.emplace_back(temp, fonts::assets["press-start-2p"], 80U);
 	}
 	stringStream.clear();
 	stringStream.str("");
@@ -33,8 +33,8 @@ void GameText::setTexts() {
 void GameText::setInternalOrigin() {
 	widestLine = 0.f;
 	totalHeight = 0.f;
-	for (Text& text : texts) {
-		FloatRect textBounds = text.getLocalBounds();
+	for (sf::Text& text : texts) {
+		sf::FloatRect textBounds = text.getLocalBounds();
 		float fullWidth = textBounds.left + textBounds.width;
 		if (fullWidth > widestLine) {
 			widestLine = fullWidth;
@@ -45,7 +45,7 @@ void GameText::setInternalOrigin() {
 			totalHeight += (FIXED_LINE_HEIGHT + verticalSpacing) * 10.f;
 		}
 	}
-	Vector2f origin;
+	sf::Vector2f origin;
 	switch (hAlign) {
 	case LEFT:
 		origin.x = 0.f;
@@ -68,14 +68,14 @@ void GameText::setInternalOrigin() {
 		origin.y = totalHeight;
 		break;
 	}
-	for (Text& text : texts) {
+	for (sf::Text& text : texts) {
 		text.setOrigin(origin);
 	}
 }
 
 void GameText::setInternalScale() {
 	float scale = scaleFactor[size];
-	for (Text& text : texts) {
+	for (sf::Text& text : texts) {
 		text.setScale(scale, scale);
 	}
 }
@@ -83,9 +83,9 @@ void GameText::setInternalScale() {
 void GameText::setLinePositions() {
 	float heightOffset = 0.f;
 	float scale = scaleFactor[size];
-	Vector2f tempPosition = this->position;
-	for (Text& text : texts) {
-		FloatRect localBounds = text.getLocalBounds();
+	sf::Vector2f tempPosition = this->position;
+	for (sf::Text& text : texts) {
+		sf::FloatRect localBounds = text.getLocalBounds();
 		switch(hAlign){
 		case LEFT:
 			tempPosition.x = this->position.x;
@@ -112,14 +112,14 @@ void GameText::reRender() {
 	this->dirty = false;
 }
 
-void GameText::setText(string s) {
+void GameText::setText(std::string s) {
 	this->stringStream.clear();
 	this->stringStream.str("");
 	this->stringStream << s;
 	this->dirty = true;
 }
 
-void GameText::appendText(string s) {
+void GameText::appendText(std::string s) {
 	this->stringStream << s;
 	this->dirty = true;
 }
@@ -129,7 +129,7 @@ void GameText::resetText() {
 	this->dirty = true;
 }
 
-void GameText::setPosition(Vector2f position) {
+void GameText::setPosition(sf::Vector2f position) {
 	this->position = position;
 	this->dirty = true;
 }
@@ -149,13 +149,13 @@ void GameText::setVAlign(VAlign align) {
 	this->dirty = true;
 }
 
-void GameText::move(Vector2f movement) {
-	for (Text& text : texts) {
+void GameText::move(sf::Vector2f movement) {
+	for (sf::Text& text : texts) {
 		text.move(movement);
 	}
 }
 
-Vector2f GameText::getPosition() {
+sf::Vector2f GameText::getPosition() {
 	return this->position;
 }
 
@@ -163,12 +163,12 @@ GameText::Size GameText::getSize() {
 	return this->size;
 }
 
-void GameText::draw(RenderWindow& window) {
+void GameText::draw(sf::RenderWindow& window) {
 	if (this->dirty) {
 		this->reRender();
 	}
 	if (texts.size() <= 0) return;
-	for (Text& text : texts) {
+	for (sf::Text& text : texts) {
 		window.draw(text);
 	}
 }

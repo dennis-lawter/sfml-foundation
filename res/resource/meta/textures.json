@@ -1,5 +1,8 @@
 {
 	"player": {
 		"file": "resource/textures/player.png"
+	},
+	"bitonicsoftlogo": {
+		"file": "resource/textures/bitonicsoftlogo.png"
 	}
 }

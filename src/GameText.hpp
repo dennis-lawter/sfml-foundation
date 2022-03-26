@@ -4,8 +4,7 @@
 #include <iomanip>
 #include <string>
 #include <SFML/Graphics.hpp>
-using namespace sf;
-using namespace std;
+#include "assets/assets.hh"
 
 class GameText {
 public:
@@ -21,18 +20,18 @@ public:
 	};
 	enum Size {
 		TITLE,
-		HUGE,
+		XL,
 		LARGE,
 		MEDIUM,
 		SMALL,
 	};
 private:
 	static const int FIXED_LINE_HEIGHT = 8;
-	vector<Text> texts;
-	vector<string> stringLines;
-	stringstream stringStream;
+	std::vector<sf::Text> texts;
+	std::vector<std::string> stringLines;
+	std::stringstream stringStream;
 	
-	Vector2f position;
+	sf::Vector2f position;
 	Size size;
 	HAlign hAlign;
 	VAlign vAlign;
@@ -49,22 +48,22 @@ private:
 public:
 	GameText();
 
-	void setText(string s);
-	void appendText(string s);
+	void setText(std::string s);
+	void appendText(std::string s);
 	void resetText();
 
-	Vector2f getPosition();
+	sf::Vector2f getPosition();
 	Size getSize();
 
-	void setPosition(Vector2f position);
+	void setPosition(sf::Vector2f position);
 	void setSize(Size size);
 	void setHAlign(HAlign align);
 	void setVAlign(VAlign align);
-	void move(Vector2f movement);
+	void move(sf::Vector2f movement);
 
 	void reRender();
 
-	void draw(RenderWindow& window);
+	void draw(sf::RenderWindow& window);
 };
 
 #endif

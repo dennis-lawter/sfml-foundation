@@ -3,9 +3,14 @@
 
 #include "generic/GameState.hpp"
 #include "../assets/assets.hh"
+#include "../GameText.hpp"
+#include "../defines.hh"
 
 class SplashLogoState : public GameState {
 private:
+	sf::Sprite logo;
+	GameText bitonic;
+	GameText us;
 
 public:
 	SplashLogoState();
