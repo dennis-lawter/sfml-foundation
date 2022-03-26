@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "../../defines.hh"
 #include "../../assets/assets.hh"
+#include "../../util.hh"
 
 class GameState {
 public:
