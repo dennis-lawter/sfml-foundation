@@ -16,6 +16,7 @@ namespace util {
 	int rangedRand(int min, int max);
 	float rangedRandFloat(float min, float max,int slices);
 	Color randomColor();
+	
 }
 
 #endif

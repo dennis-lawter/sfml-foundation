@@ -8,6 +8,7 @@
 class LoadingState : public GameState {
 private:
 	sf::RectangleShape loadingRectangle;
+	sf::ConvexShape defenderSil;
 public:
 	LoadingState();
 
