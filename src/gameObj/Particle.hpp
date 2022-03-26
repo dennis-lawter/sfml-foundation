@@ -1,6 +1,6 @@
 #ifndef PARTICLE_HPP_
 #define PARTICLE_HPP_
-#include "GameObject.hpp"
+#include "generic/GameObject.hpp"
 
 struct ParticleAttributeList {
 	Vector2f position;

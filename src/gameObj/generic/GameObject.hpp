@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "../util.hh"
+#include "../../util.hh"
 
 using namespace sf;
 

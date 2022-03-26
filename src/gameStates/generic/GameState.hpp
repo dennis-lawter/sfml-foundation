@@ -1,7 +1,7 @@
 #ifndef GAMESTATE_HPP_
 #define GAMESTATE_HPP_
 #include <SFML/Graphics.hpp>
-#include "../defines.hh"
+#include "../../defines.hh"
 
 class GameState {
 public:
