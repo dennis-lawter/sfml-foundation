@@ -1,6 +1,7 @@
 #ifndef LOADINGSTATE_HPP_
 #define LOADINGSTATE_HPP_
-#include "generic/GameState.hpp"
+#include "GameState.hpp"
+#include "../util.hh"
 #include "../assets/textures.hh"
 #include "../assets/sounds.hh"
 #include "../assets/fonts.hh"
