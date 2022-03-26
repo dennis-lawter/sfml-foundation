@@ -2,6 +2,8 @@
 #define GAMESTATE_HPP_
 #include <SFML/Graphics.hpp>
 #include "../defines.hh"
+#include "../assets/assets.hh"
+
 
 class GameState {
 public:

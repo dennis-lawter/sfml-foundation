@@ -12,7 +12,7 @@ namespace textures {
 	void performLoading() {
 		std::ifstream inStream (textures::TEXTURES_META_FILE, std::ifstream::in);
 		nlohmann::json textureJson = nlohmann::json::parse(inStream);
-
+		
 		for (auto& textureDefinition : textureJson.items()) {
 			std::string key = textureDefinition.key();
 			nlohmann::json data = textureDefinition.value();
