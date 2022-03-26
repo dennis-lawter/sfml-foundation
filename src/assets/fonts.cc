@@ -1,6 +1,5 @@
 #include "fonts.hh"
 #include <iostream>
-#include <chrono>
 
 namespace fonts {
 	std::map<std::string, sf::Font> assets;

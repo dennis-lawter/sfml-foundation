@@ -1,6 +1,5 @@
 #include "textures.hh"
 #include <iostream>
-#include <chrono>
 
 namespace textures {
 	std::map<std::string, sf::Texture> assets;
