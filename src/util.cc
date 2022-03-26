@@ -42,21 +42,4 @@ namespace util {
 		c.a = 255;
 		return c;
 	}
-
-	string cuss() {
-		const vector<char> array = { '!', '@', '#', '$', '&' };
-		int wordLength;
-		int wordAmount = rangedRand(1, 3);
-		string badWord;
-		for (int x = 0; x < wordAmount; x++) {
-			wordLength = rangedRand(3, 6);
-			for (int y = 0; y < wordLength; y++) {
-				badWord += array[rangedRand(0, array.size()-1)];
-			}
-			if (x + 1 < wordAmount) {
-				badWord += " ";
-			}
-		}
-		return badWord;
-	}
 }

@@ -1,0 +1,7 @@
+{
+	"player": {
+		"file": "resource/texture/player.png",
+		"width": 16,
+		"height": 16
+	}
+}

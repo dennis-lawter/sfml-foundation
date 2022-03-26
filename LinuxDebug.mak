@@ -4,6 +4,7 @@ EXECUTABLE=sfmlfoundation
 
 CC=g++
 CFLAGS=-O0 -g -Wall -c -fmessage-length=0 -std=c++17 -Wl,--subsystem,windows
+LINKFLAGS=-pthread
 LIBRARIES=-lsfml-graphics -lsfml-audio -lsfml-window -lsfml-system
 
 RM=rm
@@ -28,7 +29,7 @@ all: $(DEBUG_OUT_DIR)$(EXECUTABLE)
 
 $(DEBUG_OUT_DIR)$(EXECUTABLE): $(OBJECTSOUT)
 	$(dir_guard)
-	$(CC) $(LIBRARYDIR) -o $@ $(OBJECTSOUT) $(LIBRARIES)
+	$(CC) $(LINKFLAGS) $(LIBRARYDIR) -o $@ $(OBJECTSOUT) $(LIBRARIES)
 	$(CP) -R res/resource $(DEBUG_OUT_DIR)
 
 $(DEBUG_OBJ_DIR)%.o: $(SRC_DIR)%.cc

@@ -7,12 +7,16 @@ LoadingState::LoadingState() {
 	loadingRectangle.setPosition(sf::Vector2f(defines::WIDTH-30.f, defines::HEIGHT-30.f));
 
 	// initiate loading threads
+	textures::load();
 }
 
 void LoadingState::processInput(sf::Event& event) {
 }
 
 void LoadingState::update(sf::RenderWindow& window) {
+	if (textures::loaded) {
+		return;
+	}
 	loadingRectangle.rotate(1.f);
 }
 
@@ -20,4 +24,5 @@ void LoadingState::draw(sf::RenderWindow& window) {
 	window.draw(loadingRectangle);
 }
 
-LoadingState::~LoadingState() {}
+LoadingState::~LoadingState() {
+}
