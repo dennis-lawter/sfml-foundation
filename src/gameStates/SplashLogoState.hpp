@@ -11,20 +11,26 @@ private:
 	sf::Color finalColor;
 	sf::Color currentColor;
 	sf::Sprite logo;
+	sf::Sound sound;
 	GameText bitonic;
 	GameText us;
 
 	sf::Vector2f initialScale;
 	sf::Vector2f curretScale;
-	const sf::Vector2f WIDE_SCALE = {6.f, 3.f};
-	const sf::Vector2f HEIGHT_SCARE = {3.f, 6.f};
+	const sf::Vector2f WIDE_SCALE = { 7.f, 2.f };
+	const sf::Vector2f HEIGHT_SCALE = { 2.f, 7.f };
 
 	int timer = 0;
 	const int FADE_IN_MAX = 30;
 	const int STRETCH_WIDE_START = 30;
 	const int STRETCH_WIDE_END = 40;
-	const int STRETCH_TALL = 150;
-	const int STATE_END = 180;
+	const int STRETCH_TALL_START = 40;
+	const int STRETCH_TALL_END = 50;
+	const int STRETCH_NORMAL_START = 50;
+	const int STRETCH_NORMAL_END = 60;
+	const int STATE_END = 120;
+
+	const int PLAY_SOUND = 30;
 
 public:
 	SplashLogoState();
