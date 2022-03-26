@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "assets/assets.hh"
+#include "../assets/assets.hh"
 
 class GameText {
 public:

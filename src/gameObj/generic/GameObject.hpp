@@ -10,10 +10,11 @@ using namespace sf;
 class GameObject {
 protected:
 	Sprite sprite;
+	std::string name;
 public:
 	float speed;
 
-	GameObject();
+	GameObject(std::string name);
 
 	void update();
 	void draw(sf::RenderWindow& window);

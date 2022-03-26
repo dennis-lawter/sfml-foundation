@@ -1,7 +1,6 @@
 #include "GameObject.hpp"
-GameObject::GameObject() {
-	// this->sprite.setTexture(texture);
-	// this->sprite.move(x, y);
+GameObject::GameObject(std::string name) {
+	this->name = name;
 }
 
 void GameObject::draw(sf::RenderWindow& window) {

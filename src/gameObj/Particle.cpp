@@ -32,6 +32,9 @@ void Particle::update() {
 	age++;
 }
 
+Particle::~Particle() {
+}
+
 
 ParticleText::ParticleText(ParticleAttributeList attributes, std::string text)
 	:Particle(attributes) {
@@ -56,10 +59,13 @@ void ParticleText::draw(RenderWindow& window) {
 	window.draw(text);
 }
 
+ParticleText::~ParticleText() {
+}
+
 
 ParticleObject::ParticleObject(ParticleAttributeList attributes)
-	// :GameObject(resources::textures["particle"], attributes.position.x, attributes.position.y),
-	: Particle(attributes) {
+	: GameObject(ParticleObject::PARTICLE_NAME)
+	, Particle(attributes) {
 	sprite.setColor(initialColor);
 	sprite.setScale(initScaleFactor, initScaleFactor);
 }
@@ -68,4 +74,7 @@ void ParticleObject::update() {
 	Particle::update();
 	sprite.setColor(currentColor());
 	sprite.setPosition(position);
+}
+
+ParticleObject::~ParticleObject() {
 }

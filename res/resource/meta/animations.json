@@ -1,5 +1,8 @@
 {
 	"player": {
+		"width": 16,
+		"height": 16,
+		"framesPer": 10,
 		"animations": {
 			"idle": [
 				[0, 1]

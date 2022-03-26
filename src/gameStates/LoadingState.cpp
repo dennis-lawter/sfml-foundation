@@ -10,6 +10,8 @@ LoadingState::LoadingState() {
 	textures::load();
 	sounds::load();
 	fonts::load();
+	worlds::load();
+	animations::load();
 }
 
 void LoadingState::processInput(sf::Event& event) {
@@ -20,7 +22,9 @@ void LoadingState::update(sf::RenderWindow& window) {
 		if (
 			textures::loaded &&
 			sounds::loaded &&
-			fonts::loaded
+			fonts::loaded &&
+			worlds::loaded &&
+			animations::loaded
 		) {
 			this->isEnding = true;
 		}

@@ -2,9 +2,7 @@
 #define SPLASHLOGOSTATE_HPP_
 
 #include "generic/GameState.hpp"
-#include "../assets/assets.hh"
-#include "../GameText.hpp"
-#include "../defines.hh"
+#include "../rendering/GameText.hpp"
 
 class SplashLogoState : public GameState {
 private:

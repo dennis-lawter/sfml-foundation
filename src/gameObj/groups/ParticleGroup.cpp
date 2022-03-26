@@ -1,5 +1,8 @@
 #include "ParticleGroup.hpp"
 
+ParticleGroup::ParticleGroup() {
+}
+
 void ParticleGroup::createParticleObject(ParticleAttributeList attributes) {
 	particleObjects.emplace_back(attributes);
 }
@@ -47,4 +50,7 @@ void ParticleGroup::draw(RenderWindow& window) {
 	for (auto& particle : particleTexts) {
 		particle.draw(window);
 	}
+}
+
+ParticleGroup::~ParticleGroup() {
 }

@@ -22,9 +22,12 @@ protected:
 	Color currentColor();
 public:
 	bool isReadyToDie = false;
+
 	Particle(ParticleAttributeList attributes);
 
 	void update();
+
+	virtual ~Particle();
 };
 
 class ParticleText : public Particle {
@@ -35,13 +38,19 @@ public:
 
 	void update();
 	void draw(RenderWindow& window);
+
+	virtual ~ParticleText();
 };
 
 class ParticleObject : public GameObject, public Particle {
+private:
+	std::string PARTICLE_NAME = "particle";
 public:
 	ParticleObject(ParticleAttributeList attributes);
 
 	void update();
+
+	virtual ~ParticleObject();
 };
 
 #endif
