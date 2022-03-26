@@ -5,9 +5,9 @@
 
 class SpriteSheet : public sf::Sprite {
 private:
-	AnimationList& animationList;
+	AnimationList* animationList;
 public:
-	SpriteSheet(AnimationList& animations);
+	SpriteSheet(std::string name);
 
 	~SpriteSheet();
 };

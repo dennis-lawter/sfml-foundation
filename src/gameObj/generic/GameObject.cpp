@@ -1,10 +1,14 @@
 #include "GameObject.hpp"
-GameObject::GameObject(std::string name) {
+GameObject::GameObject(std::string name)
+: sprite(name) {
 	this->name = name;
 }
 
 void GameObject::draw(sf::RenderWindow& window) {
 	window.draw(this->sprite);
+}
+
+void GameObject::update() {
 }
 
 bool GameObject::testCollision(GameObject& obj) {

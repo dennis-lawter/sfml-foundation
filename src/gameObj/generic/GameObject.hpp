@@ -4,12 +4,13 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "../../util.hh"
+#include "../../rendering/SpriteSheet.hpp"
 
 using namespace sf;
 
 class GameObject {
 protected:
-	Sprite sprite;
+	SpriteSheet sprite;
 	std::string name;
 public:
 	float speed;
