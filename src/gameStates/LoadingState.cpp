@@ -26,7 +26,7 @@ LoadingState::LoadingState() {
 	defenderSil.setFillColor(sf::Color(0xCC0066ff));
 	defenderSil.setScale(sf::Vector2f(5.f, 5.f));
 	defenderSil.setOrigin(sf::Vector2f(4.f,4.f));
-	defenderSil.setPosition((sf::Vector2f(defines::WIDTH - 30.f, defines::HEIGHT - 30.f));
+	defenderSil.setPosition(sf::Vector2f(defines::WIDTH - 30.f, defines::HEIGHT - 30.f));
 
 
 
