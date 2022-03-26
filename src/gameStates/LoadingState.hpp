@@ -2,6 +2,8 @@
 #define LOADINGSTATE_HPP_
 #include "GameState.hpp"
 #include "../assets/textures.hh"
+#include "../assets/sounds.hh"
+#include "../assets/fonts.hh"
 
 class LoadingState : public GameState {
 private:
