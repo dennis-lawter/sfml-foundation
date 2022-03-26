@@ -9,7 +9,8 @@ class GameState {
 public:
 	enum State {
 		SplashLogo,
-		Loading
+		Loading,
+		Test
 	};
 
 	bool isEnding = false;

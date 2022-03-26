@@ -63,6 +63,7 @@ void Game::gameLoop() {
 	while (this->isRunning) {
 		this->processInputLoop();
 		this->update();
+		this->processState();
 		this->draw();
 	}
 }
@@ -85,7 +86,9 @@ void Game::processInputLoop() {
 
 void Game::update() {
 	this->gameState->update(window);
+}
 
+void Game::processState() {
 	if (this->gameState->isEnding) {
 		switch (this->currentGameState) {
 		case GameState::Loading:
@@ -95,8 +98,10 @@ void Game::update() {
 			break;
 		case GameState::SplashLogo:
 			delete this->gameState;
-			this->gameState = new SplashLogoState();
-			this->currentGameState = GameState::SplashLogo;
+			this->gameState = new TestState();
+			this->currentGameState = GameState::Test;
+			break;
+		case GameState::Test:
 			break;
 		default:
 			throw std::runtime_error("Invalid game state");

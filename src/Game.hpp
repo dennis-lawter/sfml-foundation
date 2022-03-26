@@ -3,6 +3,7 @@
 #include "defines.hh"
 #include "gameStates/LoadingState.hpp"
 #include "gameStates/SplashLogoState.hpp"
+#include "gameStates/TestState.hpp"
 
 class Game {
 private:
@@ -20,6 +21,7 @@ private:
 	void gameLoop();
 	void processInputLoop();
 	void update();
+	void processState();
 	void draw();
 public:
 	bool isRunning = true;
