@@ -21,7 +21,8 @@ private:
 
 	int timer = 0;
 	const int FADE_IN_MAX = 30;
-	const int STRETCH_WIDE = 60;
+	const int STRETCH_WIDE_START = 30;
+	const int STRETCH_WIDE_END = 40;
 	const int STRETCH_TALL = 150;
 	const int STATE_END = 180;
 

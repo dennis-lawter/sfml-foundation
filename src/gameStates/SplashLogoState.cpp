@@ -41,13 +41,18 @@ void SplashLogoState::update(sf::RenderWindow& window) {
 		logo.setColor(currentColor);
 		bitonic.setColor(currentColor);
 		us.setColor(currentColor);
-	} else if (timer < STRETCH_WIDE) {
-		float stretchProgress = (timer  - FADE_IN_MAX) / (float)(STRETCH_WIDE  - FADE_IN_MAX);
+	}
+	if (timer > STRETCH_WIDE_START && timer < STRETCH_WIDE_END) {
+		float stretchProgress = (timer  - STRETCH_WIDE_START) / (float)(STRETCH_WIDE_END - STRETCH_WIDE_START);
 		curretScale.x = util::lerp(initialScale.x, WIDE_SCALE.x, stretchProgress);
 		curretScale.y = util::lerp(initialScale.y, WIDE_SCALE.y, stretchProgress);
 
 		logo.setScale(curretScale);
-	} 
+	}
+
+	if (timer >= STATE_END) {
+		this->isEnding = true;
+	}
 
 	timer++;
 }
