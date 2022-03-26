@@ -1,6 +1,5 @@
 #include "sounds.hh"
 #include <iostream>
-#include <chrono>
 
 namespace sounds {
 	std::map<std::string, sf::SoundBuffer> assets;
