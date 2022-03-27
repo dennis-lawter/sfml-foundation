@@ -17,9 +17,9 @@
 		{
 			"label": "DEBUG: Build",
 			"type": "shell",
-			"command": "make -f LinuxDebug.mak all",
+			"command": "make -f LinuxDebug.mak all copyresources",
 			"windows": {
-				"command": "/c/cppdev/msys/bin/make.exe -f WinDebug.mak all",
+				"command": "/c/cppdev/msys/bin/make.exe -f WinDebug.mak all copyresources",
 			},
 			"group": "build",
 			"presentation": {

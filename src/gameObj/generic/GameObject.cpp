@@ -9,6 +9,7 @@ void GameObject::draw(sf::RenderWindow& window) {
 }
 
 void GameObject::update() {
+	this->sprite.update();
 }
 
 bool GameObject::testCollision(GameObject& obj) {

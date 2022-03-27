@@ -15,6 +15,7 @@ namespace animations {
 		for (auto& animationDefinition : jsonData.items()) {
 			std::string key = animationDefinition.key();
 			nlohmann::json data = animationDefinition.value();
+			std::string defaultAnimation = data["defaultAnimation"];
 			unsigned int width = data["width"];
 			unsigned int height = data["height"];
 			unsigned int framesPer = data["framesPer"];
@@ -24,6 +25,7 @@ namespace animations {
 			animations::assets[key].height = height;
 			animations::assets[key].framesPer = framesPer;
 			animations::assets[key].textureName = key;
+			animations::assets[key].defaultAnimation = defaultAnimation;
 			for (auto& animationJson : animationsJsonList.items()) {
 				std::string animationName = animationJson.key();
 				nlohmann::json animationArray = animationJson.value();

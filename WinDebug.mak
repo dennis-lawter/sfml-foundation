@@ -34,6 +34,9 @@ OBJECTSOUT=$(OBJECTS:$(SRC_DIR)%=$(DEBUG_OBJ_DIR)%)
 
 all: $(DEBUG_OUT_DIR)$(EXECUTABLE)
 
+copyresources:
+	$(CP) -R res/resource $(DEBUG_OUT_DIR)
+
 $(DEBUG_OUT_DIR)$(EXECUTABLE): $(OBJECTSOUT)
 	$(dir_guard)
 	$(CC) $(LIBRARYDIR) -o $@ $(OBJECTSOUT) $(LIBRARIES)
