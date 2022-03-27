@@ -3,7 +3,7 @@
  <editorsettings>
   <export target="resource/worlds/intro.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" source="player.json"/>
+ <tileset firstgid="1" source="player.xml"/>
  <layer id="1" name="Tile Layer 1" width="10" height="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,

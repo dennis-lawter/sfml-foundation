@@ -52,7 +52,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"..\/..\/player.json"
+         "source":"..\/..\/player.xml"
         }],
  "tilewidth":16,
  "type":"map",
