@@ -3,7 +3,7 @@
 		"width": 16,
 		"height": 16,
 		"framesPer": 10,
-		"defaultAnimation": "walkLeft",
+		"defaultAnimation": "walkUp",
 		"animations": {
 			"idle": [
 				[1, 0]
