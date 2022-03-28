@@ -13,7 +13,7 @@ public:
 	std::string defaultAnimation = "";
 	unsigned int width = 0;
 	unsigned int height = 0;
-	unsigned int framesPer = 1;
+	unsigned int framesPer = 0;
 
 	AnimationList();
 

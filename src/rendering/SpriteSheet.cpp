@@ -15,6 +15,8 @@ SpriteSheet::SpriteSheet(std::string name) {
 }
 
 void SpriteSheet::update() {
+	if (this->animationList->framesPer == 0) return;
+	
 	this->timer++;
 	if (this->timer >= this->animationList->framesPer) {
 		if (keyFrame + 1 >= this->animationList->getKeyFrameCount(animation)) {

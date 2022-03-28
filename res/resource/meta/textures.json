@@ -2,6 +2,9 @@
 	"player": {
 		"file": "resource/textures/player.png"
 	},
+	"world": {
+		"file": "resource/textures/world.png"
+	},
 	"bitonicsoftlogo": {
 		"file": "resource/textures/bitonicsoftlogo.png"
 	}
