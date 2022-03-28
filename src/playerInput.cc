@@ -4,10 +4,21 @@ namespace playerInput {
 
 	bool testBool = true;
 	int joystickId = -1;
-	sf::Vector2f xRange = { -1, 1 };
-	sf::Vector2f yRange = { -1, 1 };
+	sf::Vector2f xRange = { -1.f, 1.f };
+	sf::Vector2f yRange = { -1.f, 1.f };
+	sf::Vector2f inputVector = { 0.f, 0.f };
 
-	sf::Vector2f inputSideScroll(sf::Event& event) {
+	sf::Vector2f getInputVector() {
+		float magnitudeSquared = inputVector.x * inputVector.x + inputVector.y * inputVector.y;
+		if (magnitudeSquared > 1) {
+			float invMagnitude = util::InvSqrt(magnitudeSquared);
+			return inputVector * invMagnitude;
+		} else {
+			return inputVector;
+		}
+	}
+
+	void inputSideScroll(sf::Event& event) {
 		joystickId = -1;
 
 		switch (event.type) {
@@ -77,7 +88,7 @@ namespace playerInput {
 		}
 	}
 
-	sf::Vector2f inputTopDown(sf::Event& event) {
+	void inputTopDown(sf::Event& event) {
 		joystickId = -1;
 
 		switch (event.type) {
@@ -110,6 +121,17 @@ namespace playerInput {
 				) {
 			} else {
 			}
+			
+			if (
+				sf::Joystick::getAxisPosition(joystickId, sf::Joystick::Y) < -15 ||
+				sf::Joystick::getAxisPosition(joystickId, sf::Joystick::PovY) < -15
+				) {
+			} else if (
+				sf::Joystick::getAxisPosition(joystickId, sf::Joystick::Y) > 15 ||
+				sf::Joystick::getAxisPosition(joystickId, sf::Joystick::PovY) > 15
+				) {
+			} else {
+			}
 			break;
 		case sf::Event::KeyPressed:
 			switch (event.key.code) {
@@ -118,15 +140,19 @@ namespace playerInput {
 				// 	break;
 			case sf::Keyboard::A:
 			case sf::Keyboard::Left:
+				inputVector.x -= 1.f;
 				break;
 			case sf::Keyboard::D:
 			case sf::Keyboard::Right:
+				inputVector.x += 1.f;
 				break;
 			case sf::Keyboard::S:
 			case sf::Keyboard::Down:
+				inputVector.y += 1.f;
 				break;
 			case sf::Keyboard::W:
 			case sf::Keyboard::Up:
+				inputVector.y -= 1.f;
 				break;
 			case sf::Keyboard::Space:
 				break;
@@ -139,9 +165,19 @@ namespace playerInput {
 			switch (event.key.code) {
 			case sf::Keyboard::Key::A:
 			case sf::Keyboard::Key::Left:
+				inputVector.x += 1.f;
 				break;
 			case sf::Keyboard::Key::D:
 			case sf::Keyboard::Key::Right:
+				inputVector.x -= 1.f;
+				break;
+			case sf::Keyboard::S:
+			case sf::Keyboard::Down:
+				inputVector.y -= 1.f;
+				break;
+			case sf::Keyboard::W:
+			case sf::Keyboard::Up:
+				inputVector.y += 1.f;
 				break;
 			default:
 				break;
@@ -149,6 +185,7 @@ namespace playerInput {
 		default:
 			break;
 		}
+
 	}
 
 }
