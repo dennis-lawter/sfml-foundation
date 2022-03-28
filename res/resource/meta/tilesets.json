@@ -1,0 +1,8 @@
+{
+	"testdungeon": {
+		"width": 16,
+		"height": 16,
+		"tilesWide": 1,
+		"tilesTall": 3
+	}
+}

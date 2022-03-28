@@ -41,22 +41,5 @@
 				[1, 3]
 			]
 		}
-	},
-	"floor": {
-		"width": 16,
-		"height": 16,
-		"framesPer": 0,
-		"defaultAnimation": "floor",
-		"animations": {
-			"floor": [
-				[0, 0]
-			],
-			"straightWall": [
-				[0, 1]
-			],
-			"cornerWall": [
-				[0, 2]
-			]
-		}
 	}
 }
