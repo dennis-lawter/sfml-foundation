@@ -5,17 +5,20 @@
 
 class Tile : public sf::Sprite {
 public:
-	unsigned int width = 0;
-	unsigned int height = 0;
-	unsigned int tilesWide = 0;
-	unsigned int tilesTall = 0;
+	enum Rotation {
+		Rotate0 = 0,
+		Rotate90 = 1,
+		Rotate180 = 2,
+		Rotate270 = 3
+	};
+	TileSet* tileset;
 	bool flippedHori = false;
 	bool flippedVert = false;
-	bool flippedDiag = false;
+	Rotation rotationDegrees = Rotate0;
 
 	Tile(std::string name);
 
-	void setTileCoordPair(unsigned int x, unsigned int y);
+	void setTileCoordPair(sf::Vector2i coordPair);
 
 	~Tile();
 };

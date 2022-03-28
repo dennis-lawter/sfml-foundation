@@ -3,3 +3,4 @@
 #include "sounds.hh"
 #include "worlds.hh"
 #include "animations.hh"
+#include "tilesets.hh"

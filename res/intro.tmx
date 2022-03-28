@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="5">
+<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="8">
  <editorsettings>
   <export target="resource/worlds/intro.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" source="player.xml"/>
- <tileset firstgid="13" source="world.xml"/>
+ <tileset firstgid="1" name="player" tilewidth="16" tileheight="16" tilecount="12" columns="3">
+  <image source="resource/textures/player.png" width="48" height="64"/>
+ </tileset>
+ <tileset firstgid="13" name="testdungeon" tilewidth="16" tileheight="16" tilecount="3" columns="1">
+  <image source="resource/textures/testdungeon.png" width="16" height="48"/>
+ </tileset>
  <layer id="1" name="Tile Layer 1" width="10" height="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,
-0,15,14,3221225487,13,13,1610612751,14,2684354575,0,
+0,15,14,0,0,0,0,14,2684354575,0,
 0,1610612750,13,13,13,13,13,13,2684354574,0,
 0,1610612750,13,13,13,13,13,13,2684354574,0,
-0,1610612750,13,13,13,13,13,13,2684354574,0,
+0,1610612750,13,13,14,14,13,13,2684354574,0,
 0,1610612750,13,13,13,13,13,13,2684354574,0,
 0,1610612750,13,13,13,13,13,13,2684354574,0,
 0,1610612750,13,13,13,13,13,13,2684354574,0,
@@ -20,10 +24,6 @@
 </data>
  </layer>
  <objectgroup id="3" name="Object Layer 1">
-  <object id="4" gid="1" x="0" y="16" width="16" height="16">
-   <properties>
-    <property name="name" value="player"/>
-   </properties>
-  </object>
+  <object id="6" gid="8" x="72.25" y="115.75" width="16" height="16"/>
  </objectgroup>
 </map>
