@@ -15,6 +15,7 @@ namespace util {
 	float rangedRandFloat(float min, float max,int slices);
 	sf::Color randomColor();
 	sf::ConvexShape createConvexShape(std::vector<int> map);
+	float InvSqrt(float x);
 }
 
 #endif
