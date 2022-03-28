@@ -6,10 +6,10 @@ namespace animations {
 	bool loaded = false;
 	std::thread loadingThread;
 
-	const std::string ANIMATIONS_META_FILE = "resource/meta/animations.json";
+	const std::string META_FILE = "resource/meta/animations.json";
 
 	void performLoading() {
-		std::ifstream inStream (animations::ANIMATIONS_META_FILE, std::ifstream::in);
+		std::ifstream inStream (animations::META_FILE, std::ifstream::in);
 		nlohmann::json jsonData = nlohmann::json::parse(inStream);
 
 		for (auto& animationDefinition : jsonData.items()) {

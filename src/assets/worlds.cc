@@ -6,10 +6,10 @@ namespace worlds {
 	bool loaded = false;
 	std::thread loadingThread;
 
-	const std::string WORLDS_META_FILE = "resource/meta/worlds.json";
+	const std::string META_FILE = "resource/meta/worlds.json";
 
 	void performLoading() {
-		std::ifstream inStream (worlds::WORLDS_META_FILE, std::ifstream::in);
+		std::ifstream inStream (worlds::META_FILE, std::ifstream::in);
 		nlohmann::json worldJson = nlohmann::json::parse(inStream);
 
 		for (auto& textureDefinition : worldJson.items()) {

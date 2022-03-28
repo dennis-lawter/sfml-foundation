@@ -6,10 +6,10 @@ namespace sounds {
 	bool loaded = false;
 	std::thread loadingThread;
 
-	const std::string SOUNDS_META_FILE = "resource/meta/sounds.json";
+	const std::string META_FILE = "resource/meta/sounds.json";
 
 	void performLoading() {
-		std::ifstream inStream (sounds::SOUNDS_META_FILE, std::ifstream::in);
+		std::ifstream inStream (sounds::META_FILE, std::ifstream::in);
 		nlohmann::json textureJson = nlohmann::json::parse(inStream);
 
 		for (auto& textureDefinition : textureJson.items()) {

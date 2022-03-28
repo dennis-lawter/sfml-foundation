@@ -6,10 +6,10 @@ namespace fonts {
 	bool loaded = false;
 	std::thread loadingThread;
 
-	const std::string FONTS_META_FILE = "resource/meta/fonts.json";
+	const std::string META_FILE = "resource/meta/fonts.json";
 
 	void performLoading() {
-		std::ifstream inStream (fonts::FONTS_META_FILE, std::ifstream::in);
+		std::ifstream inStream (fonts::META_FILE, std::ifstream::in);
 		nlohmann::json textureJson = nlohmann::json::parse(inStream);
 
 		for (auto& textureDefinition : textureJson.items()) {
