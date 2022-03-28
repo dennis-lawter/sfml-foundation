@@ -91,6 +91,15 @@
 				"reveal": "silent"
 			},
 			"problemMatcher": []
+		},
+		{
+			"label": "git init submodules",
+			"type": "shell",
+			"command": "git submodule update --init --progress --recursive",
+			"group": "build",
+			"presentation": {
+				"reveal": "always"
+			}
 		}
 	]
 }
