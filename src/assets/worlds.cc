@@ -10,9 +10,9 @@ namespace worlds {
 
 	void performLoading() {
 		std::ifstream inStream (worlds::WORLDS_META_FILE, std::ifstream::in);
-		nlohmann::json textureJson = nlohmann::json::parse(inStream);
+		nlohmann::json worldJson = nlohmann::json::parse(inStream);
 
-		for (auto& textureDefinition : textureJson.items()) {
+		for (auto& textureDefinition : worldJson.items()) {
 			std::string key = textureDefinition.key();
 			nlohmann::json data = textureDefinition.value();
 			std::string dataFile = data["file"];
