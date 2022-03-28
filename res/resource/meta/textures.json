@@ -2,8 +2,8 @@
 	"player": {
 		"file": "resource/textures/player.png"
 	},
-	"world": {
-		"file": "resource/textures/world.png"
+	"testdungeon": {
+		"file": "resource/textures/testdungeon.png"
 	},
 	"bitonicsoftlogo": {
 		"file": "resource/textures/bitonicsoftlogo.png"
