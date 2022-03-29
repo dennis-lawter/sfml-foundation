@@ -1,8 +1,0 @@
-{
-    "testdungeon": {
-        "columns": 3,
-        "tilecount": 12,
-        "tileheight": 16,
-        "tilewidth": 16
-    }
-}
