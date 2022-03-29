@@ -107,4 +107,7 @@ void World::draw(sf::RenderWindow& window) {
 }
 
 World::~World() {
+	for (auto& [key, objPtr]: this->objs) {
+		delete objPtr;
+	}
 }
