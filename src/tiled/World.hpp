@@ -5,12 +5,18 @@
 #include <fstream>
 #include <SFML/Graphics.hpp>
 #include "../assets/worlds.hh"
+#include "../rendering/Tile.hpp"
 
 class World {
 private:
-	const unsigned FLIPPED_HORI = 0x80000000;
-	const unsigned FLIPPED_VERT = 0x40000000;
-	const unsigned FLIPPED_DIAG = 0x20000000;
+	const unsigned char FLIPPED_HORI = 0x80;
+	const unsigned char FLIPPED_VERT = 0x40;
+	const unsigned char FLIPPED_DIAG = 0x20;
+	const unsigned char ROTATED_090D = 0xA0;
+	const unsigned char ROTATED_180D = 0xC0;
+	const unsigned char ROTATED_270D = 0x60;
+	const unsigned int MOST_SIGNIFICANT_BYTE = 0xFF000000;
+	const unsigned int THREE_LEAST_SIGNIFICANT_BYTES = 0x00FFFFFF;
 
 	std::string name;
 	unsigned int width = 0;
@@ -18,7 +24,10 @@ private:
 	unsigned int tileWidth = 0;
 	unsigned int tileHeight = 0;
 
-	std::vector<std::vector<sf::Sprite>> tiles;
+	std::vector<Tile> tiles;
+	// std::map<unsigned int, Tile> tilePreDefined;
+	std::map<unsigned int, std::string> idToTileNames;
+	std::map<std::string, TileSet> tileSets;
 
 	void loadFromJson();
 public:

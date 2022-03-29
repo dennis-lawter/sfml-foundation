@@ -2,6 +2,7 @@
 #define TILE_HPP_
 #include <SFML/Graphics.hpp>
 #include "../assets/assets.hh"
+#include "TileSet.hpp"
 
 class Tile : public sf::Sprite {
 public:
@@ -11,14 +12,18 @@ public:
 		Rotate180 = 2,
 		Rotate270 = 3
 	};
-	TileSet* tileset;
+
+	std::string name;
+	TileSet& tileSet;
 	bool flippedHori = false;
 	bool flippedVert = false;
-	Rotation rotationDegrees = Rotate0;
+	Rotation rotationSelection = Rotate0;
 
-	Tile(std::string name);
+	Tile(std::string name, TileSet& tsRef);
+	// Tile(const Tile& copy);
 
-	void setTileCoordPair(sf::Vector2i coordPair);
+	void setTileFromId(unsigned int id);
+	void reRender();
 
 	~Tile();
 };

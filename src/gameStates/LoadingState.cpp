@@ -12,7 +12,6 @@ LoadingState::LoadingState() {
 	fonts::load();
 	worlds::load();
 	animations::load();
-	tilesets::load();
 }
 
 void LoadingState::processInput(sf::Event& event) {
@@ -25,8 +24,7 @@ void LoadingState::update(sf::RenderWindow& window) {
 			sounds::loaded &&
 			fonts::loaded &&
 			worlds::loaded &&
-			animations::loaded &&
-			tilesets::loaded
+			animations::loaded
 		) {
 			this->isEnding = true;
 		}
