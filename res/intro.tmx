@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="8">
+<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="8">
  <editorsettings>
   <export target="resource/worlds/intro.json" format="json"/>
  </editorsettings>
@@ -9,7 +9,10 @@
  <tileset firstgid="13" name="testdungeon" tilewidth="16" tileheight="16" tilecount="3" columns="1">
   <image source="resource/textures/testdungeon.png" width="16" height="48"/>
  </tileset>
- <layer id="1" name="Tile Layer 1" width="10" height="10">
+ <tileset firstgid="16" name="collision" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="resource/textures/collision.png" width="16" height="16"/>
+ </tileset>
+ <layer id="1" name="tiles" width="10" height="10">
   <data encoding="csv">
 0,0,0,0,0,0,3758096399,0,0,0,
 0,15,14,0,0,0,0,14,2684354575,0,
@@ -23,7 +26,21 @@
 0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="3" name="Object Layer 1">
+ <layer id="4" name="collision" width="10" height="10" opacity="0.5">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,
+0,16,16,0,0,0,0,16,16,0,
+0,16,0,0,0,0,0,0,16,0,
+0,16,0,0,0,0,0,0,16,0,
+0,16,0,0,16,16,0,0,16,0,
+0,16,0,0,0,0,0,0,16,0,
+0,16,0,0,0,0,0,0,16,0,
+0,16,0,0,0,0,0,0,16,0,
+0,16,16,16,16,16,16,16,16,0,
+0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="3" name="objs">
   <object id="6" gid="8" x="72.25" y="115.75" width="16" height="16"/>
  </objectgroup>
 </map>
