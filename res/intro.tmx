@@ -12,7 +12,7 @@
  <tileset firstgid="16" name="collision" tilewidth="16" tileheight="16" tilecount="1" columns="1">
   <image source="resource/textures/collision.png" width="16" height="16"/>
  </tileset>
- <layer id="1" name="tiles" width="10" height="10">
+ <layer id="1" name="tiles" width="10" height="10" opacity="0.3">
   <data encoding="csv">
 0,0,0,0,0,0,3758096399,0,0,0,
 0,15,14,0,0,0,0,14,2684354575,0,

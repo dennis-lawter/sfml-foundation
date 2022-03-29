@@ -17,7 +17,7 @@
 		{
 			"label": "DEBUG: Build",
 			"type": "shell",
-			"command": "make -f LinuxDebug.mak all copyresources",
+			"command": "time make -f LinuxDebug.mak all copyresources",
 			"windows": {
 				"command": "/c/cppdev/msys/bin/make.exe -f WinDebug.mak all copyresources",
 			},
@@ -30,9 +30,9 @@
 		{
 			"label": "DEBUG: Clean Build",
 			"type": "shell",
-			"command": "make -f LinuxDebug.mak clean all",
+			"command": "time make -f LinuxDebug.mak clean all copyresources",
 			"windows": {
-				"command": "/c/cppdev/msys/bin/make.exe -f WinDebug.mak clean all",
+				"command": "/c/cppdev/msys/bin/make.exe -f WinDebug.mak clean all copyresources",
 			},
 			"group": "build",
 			"presentation": {

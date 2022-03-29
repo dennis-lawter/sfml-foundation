@@ -16,6 +16,7 @@ dir_guard=$(MKDIR) -p $(@D)
 SRC_DIR=src/
 DEBUG_OBJ_DIR=Obj_Debug/
 DEBUG_OUT_DIR=Debug/
+RES_DIR=res/resource
 
 CPPSOURCES=$(call rwildcard,src/,*.cpp)
 CCSOURCES=$(call rwildcard,src/,*.cc)
@@ -28,12 +29,11 @@ OBJECTSOUT=$(OBJECTS:$(SRC_DIR)%=$(DEBUG_OBJ_DIR)%)
 all: $(DEBUG_OUT_DIR)$(EXECUTABLE)
 
 copyresources:
-	$(CP) -R res/resource $(DEBUG_OUT_DIR)
+	$(CP) -R $(RES_DIR) $(DEBUG_OUT_DIR)
 
 $(DEBUG_OUT_DIR)$(EXECUTABLE): $(OBJECTSOUT)
 	$(dir_guard)
 	$(CC) $(LINKFLAGS) $(LIBRARYDIR) -o $@ $(OBJECTSOUT) $(LIBRARIES)
-	$(CP) -R res/resource $(DEBUG_OUT_DIR)
 
 $(DEBUG_OBJ_DIR)%.o: $(SRC_DIR)%.cc
 	$(dir_guard)

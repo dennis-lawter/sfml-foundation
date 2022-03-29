@@ -18,10 +18,11 @@ private:
 	unsigned int tileWidth = 0;
 	unsigned int tileHeight = 0;
 
-	std::vector<Tile> tiles;
-	// std::map<unsigned int, Tile> tilePreDefined;
 	std::map<unsigned int, std::string> idToTileNames;
 	std::map<std::string, TileSet> tileSets;
+	
+	std::vector<Tile> tiles;
+	std::vector<sf::IntRect> staticCollision;
 
 	void loadFromJson();
 public:

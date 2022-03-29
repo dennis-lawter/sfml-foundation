@@ -30,9 +30,24 @@ void World::loadFromJson() {
 	for (auto& layerJson : worldJson["layers"]) {
 		if (layerJson["type"] == "tilelayer") {
 			if (layerJson["name"] == "collision") {
-				//
+				nlohmann::json tileData = layerJson["data"];
+				for (unsigned int y = 0; y < this->height; y++) {
+					for (unsigned int x = 0; x < this->width; x++) {
+						unsigned int tileId = tileData[this->width * y + x];
+						if (tileId == 0) continue;
+						sf::IntRect collisionTile;
+						collisionTile.left = x * this->tileWidth;
+						collisionTile.top = y * this->tileHeight;
+						collisionTile.width = this->tileWidth;
+						collisionTile.height = this->tileHeight;
+						this->staticCollision.emplace_back(collisionTile);
+					}
+				}
 			} else {
 				nlohmann::json tileData = layerJson["data"];
+				float opacity = layerJson["opacity"];
+				sf::Color color = sf::Color::White;
+				color.a = opacity * 255;
 				for (unsigned int y = 0; y < this->height; y++) {
 					for (unsigned int x = 0; x < this->width; x++) {
 						unsigned int tileId = tileData[this->width * y + x];
@@ -49,6 +64,7 @@ void World::loadFromJson() {
 						this->tiles[tilesIndex].setOrigin(this->tileWidth / 2.f, this->tileHeight / 2.f);
 						this->tiles[tilesIndex].setTileFromId(tileId);
 						this->tiles[tilesIndex].performTransformations();
+						this->tiles[tilesIndex].setColor(color);
 					}
 				}
 			}
