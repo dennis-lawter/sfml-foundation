@@ -1,7 +1,8 @@
 #include "TestState.hpp"
 
 TestState::TestState()
-: obj("player") {
+: obj("player")
+, world("intro") {
 }
 
 void TestState::processInput(sf::Event& event) {
@@ -13,6 +14,7 @@ void TestState::update(sf::RenderWindow& window) {
 
 void TestState::draw(sf::RenderWindow& window) {
 	obj.draw(window);
+	world.draw(window);
 }
 
 TestState::~TestState() {

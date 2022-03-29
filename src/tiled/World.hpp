@@ -32,6 +32,9 @@ private:
 	void loadFromJson();
 public:
 	World(std::string name);
+
+	void draw(sf::RenderWindow& window);
+
 	virtual ~World();
 };
 

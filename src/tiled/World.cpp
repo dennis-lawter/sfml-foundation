@@ -7,8 +7,8 @@ void World::loadFromJson() {
 
 	this->width = worldJson["width"];
 	this->height = worldJson["height"];
-	this->tileWidth = worldJson["tileWidth"];
-	this->tileHeight = worldJson["tileHeight"];
+	this->tileWidth = worldJson["tilewidth"];
+	this->tileHeight = worldJson["tileheight"];
 
 	for (auto& tileSetJson : worldJson["tilesets"]) {
 		std::string tileSetName = tileSetJson["name"];
@@ -35,6 +35,8 @@ void World::loadFromJson() {
 			for (unsigned int y = 0; y < this->height; y++) {
 				for (unsigned int x = 0; x < this->width; x++) {
 					unsigned int tileId = tileData[this->width * y + x];
+					if (tileId == 0) continue;
+
 					unsigned int tileFlags = (tileId & MOST_SIGNIFICANT_BYTE) >> 6;
 					tileId &= THREE_LEAST_SIGNIFICANT_BYTES;
 
@@ -53,6 +55,7 @@ void World::loadFromJson() {
 					unsigned int tilesIndex = this->tiles.size();
 					std::string tileName = this->idToTileNames[tileId];
 					// Tile* preDefTile = &(this->tilePreDefined[tileId]);
+					// TileSet& tileSetByName = this->tileSets[tileName];
 					this->tiles.emplace_back(tileName, this->tileSets[tileName]);
 					this->tiles[tilesIndex].flippedHori = flipped_horizontally || flipped_diagonally;
 					this->tiles[tilesIndex].flippedVert = flipped_vertically || flipped_diagonally;
@@ -70,6 +73,13 @@ void World::loadFromJson() {
 
 World::World(std::string name) {
 	this->name = name;
+	this->loadFromJson();
+}
+
+void World::draw(sf::RenderWindow& window) {
+	for (Tile& tile : this->tiles) {
+		window.draw(tile);
+	}
 }
 
 World::~World() {

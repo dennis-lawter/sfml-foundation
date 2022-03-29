@@ -2,10 +2,13 @@
 #define TESTSTATE_HPP_
 #include "generic/GameState.hpp"
 #include "../gameObj/generic/GameObject.hpp"
+#include "../tiled/World.hpp"
 
 class TestState : public GameState {
 private:
 	GameObject obj;
+
+	World world;
 public:
 	TestState();
 
