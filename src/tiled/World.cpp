@@ -37,18 +37,21 @@ void World::loadFromJson() {
 					unsigned int tileId = tileData[this->width * y + x];
 					if (tileId == 0) continue;
 
-					unsigned int tileFlags = (tileId & MOST_SIGNIFICANT_BYTE) >> 6;
+					unsigned int tileFlags = (tileId & MOST_SIGNIFICANT_BYTE) >> 24;
 					tileId &= THREE_LEAST_SIGNIFICANT_BYTES;
 
-					bool flipped_horizontally = (tileFlags & FLIPPED_HORI);
-					bool flipped_vertically = (tileFlags & FLIPPED_VERT);
-					bool flipped_diagonally = (tileFlags & FLIPPED_DIAG);
+					// bool flipped_horizontally = (tileFlags & FLIPPED_HORI);
+					// bool flipped_vertically = (tileFlags & FLIPPED_VERT);
+					// bool flipped_diagonally = (tileFlags & FLIPPED_DIAG);
+					bool flipped_horizontally = false;
+					bool flipped_vertically = false;
+					bool flipped_diagonally = false;
 					Tile::Rotation tileRotation = Tile::Rotate0;
-					if (tileFlags & ROTATED_090D) {
-						tileRotation = Tile::Rotate90;
-					} else if (tileFlags & ROTATED_180D) {
+					if (tileFlags == ROTATED_180D) {
 						tileRotation = Tile::Rotate180;
-					} else if (tileFlags & ROTATED_270D) {
+					} else if (tileFlags == ROTATED_090D) {
+						tileRotation = Tile::Rotate90;
+					} else if (tileFlags == ROTATED_270D) {
 						tileRotation = Tile::Rotate270;
 					}
 
