@@ -23,12 +23,10 @@ sf::FloatRect GameObject::getHitBox() {
 	return this->sprite.getGlobalBounds();
 }
 
-// get current x position of object from the top left pixel of the object
 float GameObject::getX() {
 	return this->sprite.getPosition().x;
 }
 
-// get current y position of object from the top left pixel of the object
 float GameObject::getY() {
 	return this->sprite.getPosition().y;
 }

@@ -60,7 +60,9 @@ void World::loadFromJson() {
 						std::string tileName = this->idToTileNames[tileId];
 						this->tiles.emplace_back(tileName, this->tileSets[tileName]);
 						this->tiles[tilesIndex].transformation = (Tile::Transformation)tileFlags;
-						this->tiles[tilesIndex].setPosition(x * this->tileWidth + this->tileWidth / 2.f, y * this->tileHeight + this->tileHeight / 2.f);
+						float tileX = x * this->tileWidth + this->tileWidth / 2.f;
+						float tileY = y * this->tileHeight + this->tileHeight / 2.f;
+						this->tiles[tilesIndex].setPosition(tileX, tileY);
 						this->tiles[tilesIndex].setOrigin(this->tileWidth / 2.f, this->tileHeight / 2.f);
 						this->tiles[tilesIndex].setTileFromId(tileId);
 						this->tiles[tilesIndex].performTransformations();
