@@ -9,12 +9,6 @@
 
 class World {
 private:
-	const unsigned char FLIPPED_HORI = 0x80;
-	const unsigned char FLIPPED_VERT = 0x40;
-	const unsigned char FLIPPED_DIAG = 0x20;
-	const unsigned char ROTATED_090D = 0xA0;
-	const unsigned char ROTATED_180D = 0xC0;
-	const unsigned char ROTATED_270D = 0x60;
 	const unsigned int MOST_SIGNIFICANT_BYTE = 0xFF000000;
 	const unsigned int THREE_LEAST_SIGNIFICANT_BYTES = 0x00FFFFFF;
 
