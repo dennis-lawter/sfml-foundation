@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include "../assets/worlds.hh"
 #include "../rendering/Tile.hpp"
+#include "../gameObj/generic/GameObject.hpp"
 
 class World {
 private:
@@ -23,11 +24,13 @@ private:
 	
 	std::vector<Tile> tiles;
 	std::vector<sf::IntRect> staticCollision;
+	std::map<unsigned int, GameObject*> objs;
 
 	void loadFromJson();
 public:
 	World(std::string name);
 
+	void update();
 	void draw(sf::RenderWindow& window);
 
 	virtual ~World();

@@ -68,6 +68,20 @@ void World::loadFromJson() {
 					}
 				}
 			}
+		} else if (layerJson["type"] == "objectgroup") {
+			for (nlohmann::json& objectJson : layerJson["objects"]) {
+				std::string objectName = objectJson["name"];
+				unsigned int id = objectJson["id"];
+				float x = objectJson["x"];
+				float y = objectJson["y"];
+
+				this->objs[id] = new GameObject(objectName);
+				sf::FloatRect rect = this->objs[id]->getHitBox();
+				// adjust for tilded using bottom left px origin
+				x += rect.width/2.f;
+				y -= rect.width/2.f;
+				this->objs[id]->setPosition(sf::Vector2f(x, y));
+			}
 		}
 	}
 }
@@ -77,9 +91,18 @@ World::World(std::string name) {
 	this->loadFromJson();
 }
 
+void World::update() {
+	for (auto& [key, objPtr]: this->objs) {
+		objPtr->update();
+	}
+}
+
 void World::draw(sf::RenderWindow& window) {
 	for (Tile& tile : this->tiles) {
 		window.draw(tile);
+	}
+	for (const auto& [key, objPtr]: this->objs) {
+		objPtr->draw(window);
 	}
 }
 

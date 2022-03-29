@@ -6,8 +6,6 @@
 
 class TestState : public GameState {
 private:
-	GameObject obj;
-
 	World world;
 public:
 	TestState();

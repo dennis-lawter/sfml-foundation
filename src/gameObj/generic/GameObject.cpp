@@ -2,6 +2,9 @@
 GameObject::GameObject(std::string name)
 : sprite(name) {
 	this->name = name;
+	this->sprite.update();
+	sf::FloatRect rect = this->getHitBox();
+	this->sprite.setOrigin(rect.width/2.f, rect.height/2.f);
 }
 
 void GameObject::draw(sf::RenderWindow& window) {
@@ -16,7 +19,7 @@ bool GameObject::testCollision(GameObject& obj) {
 	return getHitBox().intersects(obj.getHitBox());
 }
 
-FloatRect GameObject::getHitBox() {
+sf::FloatRect GameObject::getHitBox() {
 	return this->sprite.getGlobalBounds();
 }
 
@@ -38,10 +41,10 @@ float GameObject::getHeight() {
 	return this->sprite.getLocalBounds().height;
 }
 
-Vector2f GameObject::getPosition() {
+sf::Vector2f GameObject::getPosition() {
 	return sprite.getPosition();
 }
 
-void GameObject::setPosition(Vector2f pos) {
+void GameObject::setPosition(sf::Vector2f pos) {
 	sprite.setPosition(pos);
 }

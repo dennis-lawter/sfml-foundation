@@ -6,8 +6,6 @@
 #include "../../util.hh"
 #include "../../rendering/SpriteSheet.hpp"
 
-using namespace sf;
-
 class GameObject {
 protected:
 	SpriteSheet sprite;
@@ -22,14 +20,14 @@ public:
 
 	bool testCollision(GameObject& obj);
 
-	FloatRect getHitBox();
+	sf::FloatRect getHitBox();
 	float getX();
 	float getY();
 	float getWidth();
 	float getHeight();
 
-	Vector2f getPosition();
-	void setPosition(Vector2f pos);
+	sf::Vector2f getPosition();
+	void setPosition(sf::Vector2f pos);
 };
 
 #endif
