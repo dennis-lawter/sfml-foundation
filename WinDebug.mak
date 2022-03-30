@@ -24,10 +24,7 @@ DLLS=\
 "C:/cppdev/SFML-2.5.1/bin/sfml-graphics-2.dll" \
 "C:/cppdev/SFML-2.5.1/bin/sfml-system-2.dll" \
 "C:/cppdev/SFML-2.5.1/bin/sfml-window-2.dll" \
-"C:/cppdev/SFML-2.5.1/bin/openal32.dll" \
-"C:/cppdev/mingw-w64-7.3.0/mingw64/bin/libstdc++-6.dll" \
-"C:/cppdev/mingw-w64-7.3.0/mingw64/bin/libwinpthread-1.dll" \
-"C:/cppdev/mingw-w64-7.3.0/mingw64/bin/libgcc_s_seh-1.dll" 
+"C:/cppdev/SFML-2.5.1/bin/openal32.dll"
 
 CPPSOURCES=$(call rwildcard,src/,*.cpp)
 CCSOURCES=$(call rwildcard,src/,*.cc)
