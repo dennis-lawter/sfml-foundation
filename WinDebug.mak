@@ -20,11 +20,11 @@ DEBUG_OUT_DIR=Debug/
 RES_DIR=res/resource
 
 DLLS=\
-"C:/cppdev/SFML-2.5.1/bin/sfml-audio-2.dll" \
-"C:/cppdev/SFML-2.5.1/bin/sfml-graphics-2.dll" \
-"C:/cppdev/SFML-2.5.1/bin/sfml-system-2.dll" \
-"C:/cppdev/SFML-2.5.1/bin/sfml-window-2.dll" \
-"C:/cppdev/SFML-2.5.1/bin/openal32.dll"
+"/c/cppdev/SFML-2.5.1/bin/sfml-audio-2.dll" \
+"/c/cppdev/SFML-2.5.1/bin/sfml-graphics-2.dll" \
+"/c/cppdev/SFML-2.5.1/bin/sfml-system-2.dll" \
+"/c/cppdev/SFML-2.5.1/bin/sfml-window-2.dll" \
+"/c/cppdev/SFML-2.5.1/bin/openal32.dll"
 
 CPPSOURCES=$(call rwildcard,src/,*.cpp)
 CCSOURCES=$(call rwildcard,src/,*.cc)
@@ -42,7 +42,7 @@ copyresources:
 $(DEBUG_OUT_DIR)$(EXECUTABLE): $(OBJECTSOUT)
 	$(dir_guard)
 	$(CC) $(LIBRARYDIR) -o $@ $(OBJECTSOUT) $(LIBRARIES)
-	$(CP) $(DLLS) $(RELEASE_OUT_DIR)
+	$(CP) $(DLLS) $(DEBUG_OUT_DIR)
 
 $(DEBUG_OBJ_DIR)%.o: $(SRC_DIR)%.cc
 	$(dir_guard)
