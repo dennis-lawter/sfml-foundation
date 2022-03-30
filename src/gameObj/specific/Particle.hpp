@@ -43,8 +43,6 @@ public:
 };
 
 class ParticleObject : public GameObject, public Particle {
-private:
-	std::string PARTICLE_NAME = "particle";
 public:
 	ParticleObject(ParticleAttributeList attributes);
 

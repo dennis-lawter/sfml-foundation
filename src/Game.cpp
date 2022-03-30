@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "gameObj/groups/ParticleGroup.hh"
 
 Game::Game() {
 	this->screenClearColor = sf::Color(0x222222ff);
@@ -26,13 +27,18 @@ void Game::initializeWindow() {
 	int widthMultiplier = screenWidthAvailable / defines::WIDTH;
 	int heightMultiplier = screenHeightAvailable / defines::HEIGHT;
 	int gameScreenMultiplier = (widthMultiplier < heightMultiplier) ? widthMultiplier : heightMultiplier;
-	window.create(sf::VideoMode(gameScreenMultiplier * defines::WIDTH, gameScreenMultiplier * defines::HEIGHT), defines::GAME_NAME);
+	int windowWidth = gameScreenMultiplier * defines::WIDTH;
+	int windowHeight = gameScreenMultiplier * defines::HEIGHT;
+	window.create(sf::VideoMode(windowWidth, windowHeight), defines::GAME_NAME);
+
 	camera.setSize(defines::WIDTH, defines::HEIGHT);
 	camera.setCenter(defines::WIDTH / 2.f, defines::HEIGHT / 2.f);
 	window.setView(camera);
 
 	window.setKeyRepeatEnabled(false);
 	window.setFramerateLimit(60);
+
+	particleGroup::setWindow(window);
 }
 
 void Game::resizeWindow() {
@@ -86,6 +92,7 @@ void Game::processInputLoop() {
 
 void Game::update() {
 	this->gameState->update(window);
+	particleGroup::update();
 }
 
 void Game::processState() {
@@ -115,6 +122,7 @@ void Game::draw() {
 	this->window.draw(this->background);
 
 	this->gameState->draw(this->window);
+	particleGroup::draw();
 
 	this->window.display();
 }

@@ -64,7 +64,7 @@ ParticleText::~ParticleText() {
 
 
 ParticleObject::ParticleObject(ParticleAttributeList attributes)
-	: GameObject(ParticleObject::PARTICLE_NAME)
+	: GameObject("particle")
 	, Particle(attributes) {
 	sprite.setColor(initialColor);
 	sprite.setScale(initScaleFactor, initScaleFactor);

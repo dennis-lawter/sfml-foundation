@@ -1,6 +1,7 @@
 #ifndef PLAYER_HH_
 #define PLAYER_HH_
 #include "../generic/GameObject.hpp"
+#include "../groups/ParticleGroup.hh"
 #include "../../playerInput.hh"
 #include <iostream>
 

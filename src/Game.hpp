@@ -12,7 +12,7 @@ private:
 	sf::RectangleShape background;
 	GameState* gameState = nullptr;
 	GameState::State currentGameState = GameState::Loading;
-	sf::Color screenClearColor; //(0x000022ff)
+	sf::Color screenClearColor;
 	sf::Event currentEvent;
 
 	void initializeWindow();

@@ -5,6 +5,9 @@
     "testdungeon": {
         "file": "resource/textures/testdungeon.png"
     },
+    "particle": {
+        "file": "resource/textures/particle.png"
+    },
     "black": {
         "file": "resource/textures/black.png"
     },
