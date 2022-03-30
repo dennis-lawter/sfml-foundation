@@ -1,11 +1,14 @@
 {
-	"player": {
-		"file": "resource/textures/player.png"
-	},
-	"testdungeon": {
-		"file": "resource/textures/testdungeon.png"
-	},
-	"bitonicsoftlogo": {
-		"file": "resource/textures/bitonicsoftlogo.png"
-	}
+    "player": {
+        "file": "resource/textures/player.png"
+    },
+    "testdungeon": {
+        "file": "resource/textures/testdungeon.png"
+    },
+    "black": {
+        "file": "resource/textures/black.png"
+    },
+    "bitonicsoftlogo": {
+        "file": "resource/textures/bitonicsoftlogo.png"
+    }
 }

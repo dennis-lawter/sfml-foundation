@@ -20,14 +20,11 @@ DEBUG_OUT_DIR=Debug/
 RES_DIR=res/resource
 
 DLLS=\
-"C:/cppdev/SFML-2.5.1/bin/sfml-audio-2.dll" \
-"C:/cppdev/SFML-2.5.1/bin/sfml-graphics-2.dll" \
-"C:/cppdev/SFML-2.5.1/bin/sfml-system-2.dll" \
-"C:/cppdev/SFML-2.5.1/bin/sfml-window-2.dll" \
-"C:/cppdev/SFML-2.5.1/bin/openal32.dll" \
-"C:/cppdev/mingw-w64-7.3.0/mingw64/bin/libstdc++-6.dll" \
-"C:/cppdev/mingw-w64-7.3.0/mingw64/bin/libwinpthread-1.dll" \
-"C:/cppdev/mingw-w64-7.3.0/mingw64/bin/libgcc_s_seh-1.dll" 
+"/c/cppdev/SFML-2.5.1/bin/sfml-audio-2.dll" \
+"/c/cppdev/SFML-2.5.1/bin/sfml-graphics-2.dll" \
+"/c/cppdev/SFML-2.5.1/bin/sfml-system-2.dll" \
+"/c/cppdev/SFML-2.5.1/bin/sfml-window-2.dll" \
+"/c/cppdev/SFML-2.5.1/bin/openal32.dll"
 
 CPPSOURCES=$(call rwildcard,src/,*.cpp)
 CCSOURCES=$(call rwildcard,src/,*.cc)
@@ -45,7 +42,7 @@ copyresources:
 $(DEBUG_OUT_DIR)$(EXECUTABLE): $(OBJECTSOUT)
 	$(dir_guard)
 	$(CC) $(LIBRARYDIR) -o $@ $(OBJECTSOUT) $(LIBRARIES)
-	$(CP) $(DLLS) $(RELEASE_OUT_DIR)
+	$(CP) $(DLLS) $(DEBUG_OBJ_DIR)
 
 $(DEBUG_OBJ_DIR)%.o: $(SRC_DIR)%.cc
 	$(dir_guard)
