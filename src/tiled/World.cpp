@@ -80,9 +80,27 @@ void World::loadFromJson() {
 				this->objs[id] = GameObjectFactory::create(objectName);
 				sf::FloatRect rect = this->objs[id]->getHitBox();
 				// adjust for tilded using bottom left px origin
-				x += rect.width/2.f;
-				y -= rect.width/2.f;
+				x += rect.width / 2.f;
+				y -= rect.width / 2.f;
 				this->objs[id]->setPosition(sf::Vector2f(x, y));
+
+				if (objectJson.contains("properties")) {
+					for (nlohmann::json& propertyJson : objectJson["properties"]) {
+						std::string propertyType = propertyJson["type"];
+						std::string propertyName = propertyJson["name"];
+						if (propertyType == "int" || propertyType == "object") {
+							this->objs[id]->setCustomProperty(propertyName, (int)propertyJson["value"]);
+						} else if (propertyType == "color") {
+							this->objs[id]->setCustomProperty(propertyName, (unsigned int)propertyJson["value"]);
+						} else if (propertyType == "bool") {
+							this->objs[id]->setCustomProperty(propertyName, (bool)propertyJson["value"]);
+						} else if (propertyType == "float") {
+							this->objs[id]->setCustomProperty(propertyName, (float)propertyJson["value"]);
+						} else {
+							this->objs[id]->setCustomProperty(propertyName, (std::string)propertyJson["value"]);
+						}
+					}
+				}
 			}
 		}
 	}
@@ -94,7 +112,7 @@ World::World(std::string name) {
 }
 
 void World::update() {
-	for (auto& [key, objPtr]: this->objs) {
+	for (auto& [key, objPtr] : this->objs) {
 		objPtr->update();
 	}
 }
@@ -103,13 +121,13 @@ void World::draw(sf::RenderWindow& window) {
 	for (Tile& tile : this->tiles) {
 		window.draw(tile);
 	}
-	for (const auto& [key, objPtr]: this->objs) {
+	for (const auto& [key, objPtr] : this->objs) {
 		objPtr->draw(window);
 	}
 }
 
 World::~World() {
-	for (auto& [key, objPtr]: this->objs) {
+	for (auto& [key, objPtr] : this->objs) {
 		GameObjectFactory::destroy(objPtr);
 	}
 }
