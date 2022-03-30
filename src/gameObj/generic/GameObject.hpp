@@ -16,7 +16,7 @@ public:
 
 	GameObject(std::string name);
 
-	void update();
+	virtual void update();
 	void draw(sf::RenderWindow& window);
 
 	bool testCollision(GameObject& obj);

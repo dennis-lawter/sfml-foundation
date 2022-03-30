@@ -5,7 +5,7 @@ TestState::TestState()
 }
 
 void TestState::processInput(sf::Event& event) {
-	// playerInput::inputTopDown(event);
+	playerInput::inputTopDown(event);
 	// playerInput::inputSideScroll(event);
 }
 
