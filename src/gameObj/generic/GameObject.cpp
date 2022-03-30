@@ -1,10 +1,10 @@
 #include "GameObject.hpp"
 GameObject::GameObject(std::string name)
-: sprite(name) {
+	: sprite(name) {
 	this->name = name;
 	this->sprite.update();
 	sf::FloatRect rect = this->getHitBox();
-	this->sprite.setOrigin(rect.width/2.f, rect.height/2.f);
+	this->sprite.setOrigin(rect.width / 2.f, rect.height / 2.f);
 }
 
 void GameObject::draw(sf::RenderWindow& window) {
@@ -45,4 +45,12 @@ sf::Vector2f GameObject::getPosition() {
 
 void GameObject::setPosition(sf::Vector2f pos) {
 	sprite.setPosition(pos);
+}
+
+nlohmann::json GameObject::getCustomProperty(std::string name) {
+	return this->customProperties[name];
+}
+
+void GameObject::setCustomProperty(std::string name, nlohmann::json value) {
+	this->customProperties[name] = value;
 }
