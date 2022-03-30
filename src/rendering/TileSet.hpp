@@ -1,6 +1,7 @@
 #ifndef TILESET_HPP_
 #define TILESET_HPP_
 #include <SFML/Graphics/Rect.hpp>
+#include <string>
 
 class TileSet {
 public:

@@ -3,6 +3,7 @@
 #include "generic/GameState.hpp"
 #include "../gameObj/generic/GameObject.hpp"
 #include "../tiled/World.hpp"
+#include "../playerInput.hh"
 
 class TestState : public GameState {
 private:
