@@ -6,7 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include "../assets/worlds.hh"
 #include "../rendering/Tile.hpp"
-#include "../gameObj/generic/GameObject.hpp"
+#include "../gameObj/GameObjectFactory.hh"
 
 class World {
 private:

@@ -8,7 +8,7 @@ void ParticleGroup::createParticleObject(ParticleAttributeList attributes) {
 }
 
 void ParticleGroup::createParticleText(std::string text, sf::Vector2f pos, sf::Color color) {
-	Color finalColor = color;
+	sf::Color finalColor = color;
 	finalColor.a = 0;
 	ParticleAttributeList attributes {
 		pos,
@@ -43,7 +43,7 @@ void ParticleGroup::update() {
 	}
 }
 
-void ParticleGroup::draw(RenderWindow& window) {
+void ParticleGroup::draw(sf::RenderWindow& window) {
 	for (auto& particle : particleObjects) {
 		particle.draw(window);
 	}

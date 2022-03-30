@@ -77,7 +77,7 @@ void World::loadFromJson() {
 				float x = objectJson["x"];
 				float y = objectJson["y"];
 
-				this->objs[id] = new GameObject(objectName);
+				this->objs[id] = GameObjectFactory::create(objectName);
 				sf::FloatRect rect = this->objs[id]->getHitBox();
 				// adjust for tilded using bottom left px origin
 				x += rect.width/2.f;
@@ -110,6 +110,6 @@ void World::draw(sf::RenderWindow& window) {
 
 World::~World() {
 	for (auto& [key, objPtr]: this->objs) {
-		delete objPtr;
+		GameObjectFactory::destroy(objPtr);
 	}
 }

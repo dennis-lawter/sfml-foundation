@@ -1,6 +1,6 @@
 #ifndef PARTICLEGROUP_HPP_
 #define PARTICLEGROUP_HPP_
-#include "../Particle.hpp"
+#include "../specific/Particle.hpp"
 
 class ParticleGroup {
 private:
@@ -13,7 +13,7 @@ public:
 	void createParticleText(std::string text, sf::Vector2f pos, sf::Color color);
 
 	void update();
-	void draw(RenderWindow& window);	
+	void draw(sf::RenderWindow& window);	
 
 	virtual ~ParticleGroup();
 };

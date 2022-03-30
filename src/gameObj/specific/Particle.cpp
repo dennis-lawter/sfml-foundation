@@ -9,10 +9,10 @@ void Particle::move() {
 	position += velocity;
 }
 
-Color Particle::currentColor() {
+sf::Color Particle::currentColor() {
 	if (initialColor == finalColor) return initialColor;
 
-	Color color;
+	sf::Color color;
 	color.r = util::lerp(initialColor.r, finalColor.r, agePercentage);
 	color.g = util::lerp(initialColor.g, finalColor.g, agePercentage);
 	color.b = util::lerp(initialColor.b, finalColor.b, agePercentage);
@@ -44,7 +44,7 @@ ParticleText::ParticleText(ParticleAttributeList attributes, std::string text)
 		this->text.setScale(.05f, .05f);
 		this->text.setString(text);
 
-		FloatRect textBounds = this->text.getLocalBounds();
+		sf::FloatRect textBounds = this->text.getLocalBounds();
 		this->text.setPosition(this->position);
 		this->text.setOrigin(textBounds.width/2.f, 0.f);
 	}
@@ -55,7 +55,7 @@ void ParticleText::update() {
 	text.setPosition(position);
 }
 
-void ParticleText::draw(RenderWindow& window) {
+void ParticleText::draw(sf::RenderWindow& window) {
 	window.draw(text);
 }
 

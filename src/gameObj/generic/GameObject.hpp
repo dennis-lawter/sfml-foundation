@@ -9,9 +9,9 @@
 class GameObject {
 protected:
 	SpriteSheet sprite;
-	std::string name;
 public:
 	float speed;
+	std::string name;
 
 	GameObject(std::string name);
 
