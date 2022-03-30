@@ -73,6 +73,7 @@
 	"terminal.integrated.defaultProfile.windows": "Git Bash",
 	"search.exclude": {
 		"**/.git": true,
-		"**/doxygen": true
+		"**/doxygen": true,
+		"extern/json/": true,
 	}	
 }

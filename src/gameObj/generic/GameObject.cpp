@@ -54,3 +54,6 @@ nlohmann::json GameObject::getCustomProperty(std::string name) {
 void GameObject::setCustomProperty(std::string name, nlohmann::json value) {
 	this->customProperties[name] = value;
 }
+
+GameObject::~GameObject() {
+}

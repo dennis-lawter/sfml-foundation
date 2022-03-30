@@ -127,8 +127,7 @@ void World::draw(sf::RenderWindow& window) {
 }
 
 World::~World() {
-	for (auto& [key, objPtr] : this->objs) {
-		GameObjectFactory::destroy(objPtr);
-		this->objs.erase(key);
+	for (auto& pair : this->objs) {
+		GameObjectFactory::destroy(pair.second);
 	}
 }

@@ -32,6 +32,8 @@ public:
 
 	nlohmann::json getCustomProperty(std::string name);
 	void setCustomProperty(std::string name, nlohmann::json value);
+
+	virtual ~GameObject();
 };
 
 #endif
