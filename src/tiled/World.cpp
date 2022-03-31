@@ -150,29 +150,26 @@ void World::testCollision() {
 	}
 }
 
-void World::snap(GameObject &subject, sf::Vector2f currentPosition, sf::Vector2f oldPosition, sf::FloatRect &target){
+void World::snap(GameObject& subject, sf::Vector2f currentPosition, sf::Vector2f oldPosition, sf::FloatRect& target) {
 	float subjectWidth = subject.getWidth();
 	float subjectHeight = subject.getHeight();
 	float targetWidth = target.width;
 	float targetHeight = target.height;
 
-	sf::Vector2f targetPosition = {target.left, target.top};
+	sf::Vector2f targetPosition = { target.left, target.top };
 	sf::Vector2f distance = currentPosition - oldPosition;
-	if(distance.x < -this->precisionRounding) {
+	if (distance.x < -defines::precisionRounding) {
 		//right collision
-		currentPosition.x = (targetPosition.x+targetWidth+this->precisionRounding+subjectWidth/2.f);
-	}
-	else if(distance.x > this->precisionRounding) {
+		currentPosition.x = (targetPosition.x + targetWidth + defines::precisionRounding + subjectWidth / 2.f);
+	} else if (distance.x > defines::precisionRounding) {
 		//left collision
-		currentPosition.x = (targetPosition.x-this->precisionRounding-subjectWidth/2.f);
-	}
-	else if(distance.y < -this->precisionRounding) {
+		currentPosition.x = (targetPosition.x - defines::precisionRounding - subjectWidth / 2.f);
+	} else if (distance.y < -defines::precisionRounding) {
 		//top collision
-		currentPosition.y = (targetPosition.y+targetHeight+this->precisionRounding+subjectHeight/2.f);
-	}
-	else if(distance.y > this->precisionRounding) {
+		currentPosition.y = (targetPosition.y + targetHeight + defines::precisionRounding + subjectHeight / 2.f);
+	} else if (distance.y > defines::precisionRounding) {
 		//bottom collision
-		currentPosition.y = (targetPosition.y-this->precisionRounding-subjectHeight/2.f);
+		currentPosition.y = (targetPosition.y - defines::precisionRounding - subjectHeight / 2.f);
 	}
 
 	subject.setPosition(currentPosition);

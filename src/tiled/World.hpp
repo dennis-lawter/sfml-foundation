@@ -14,9 +14,6 @@ private:
 	const unsigned int MOST_SIGNIFICANT_BYTE = 0xFF000000;
 	const unsigned int THREE_LEAST_SIGNIFICANT_BYTES = 0x00FFFFFF;
 
-	const int precision = 10000;
-	const float precisionRounding = 1.0/precision;
-
 	std::string name;
 	unsigned int width = 0;
 	unsigned int height = 0;
