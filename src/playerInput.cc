@@ -59,13 +59,16 @@ namespace playerInput {
 				// 	break;
 			case sf::Keyboard::A:
 			case sf::Keyboard::Left:
+				inputVector.x -= 1.f;
 				break;
 			case sf::Keyboard::D:
 			case sf::Keyboard::Right:
+				inputVector.x += 1.f;
 				break;
 			case sf::Keyboard::W:
 			case sf::Keyboard::Up:
 			case sf::Keyboard::Space:
+				inputVector.y -= 1.f;
 				break;
 			case sf::Keyboard::Escape:
 			default:
@@ -76,9 +79,16 @@ namespace playerInput {
 			switch (event.key.code) {
 			case sf::Keyboard::Key::A:
 			case sf::Keyboard::Key::Left:
+				inputVector.x += 1.f;
 				break;
 			case sf::Keyboard::Key::D:
 			case sf::Keyboard::Key::Right:
+				inputVector.x -= 1.f;
+				break;
+			case sf::Keyboard::W:
+			case sf::Keyboard::Up:
+			case sf::Keyboard::Space:
+				inputVector.y += 1.f;
 				break;
 			default:
 				break;
@@ -121,7 +131,7 @@ namespace playerInput {
 				) {
 			} else {
 			}
-			
+
 			if (
 				sf::Joystick::getAxisPosition(joystickId, sf::Joystick::Y) < -15 ||
 				sf::Joystick::getAxisPosition(joystickId, sf::Joystick::PovY) < -15

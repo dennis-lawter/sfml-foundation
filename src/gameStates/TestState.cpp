@@ -6,8 +6,8 @@ TestState::TestState(sf::RenderWindow& window)
 }
 
 void TestState::processInput(sf::Event& event) {
-	playerInput::inputTopDown(event);
-	// playerInput::inputSideScroll(event);
+	//playerInput::inputTopDown(event);
+	playerInput::inputSideScroll(event);
 
 	// ParticleObject test ({
 	// 	{100, 100},

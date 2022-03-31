@@ -10,6 +10,8 @@ namespace playerInput {
 	sf::Vector2f getInputVector();
 	void inputSideScroll(sf::Event& event);
 	void inputTopDown(sf::Event& event);
+
+	
 }
 
 #endif

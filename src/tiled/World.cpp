@@ -130,7 +130,6 @@ void World::testCollision() {
 		objPtr->setPosition(sf::Vector2f(idealPosition.x, oldPos.y));
 		for (sf::FloatRect& t : this->staticCollision) {
 			if (objPtr->testCollision(t)) {
-				// snap(*objPtr, objPtr->getPosition(), objPtr->oldPosition, t);
 				objPtr->setPosition(oldPos);
 				break;
 			}
@@ -139,8 +138,12 @@ void World::testCollision() {
 		objPtr->setPosition(sf::Vector2f(temp.x, idealPosition.y));
 		for (sf::FloatRect& t : this->staticCollision) {
 			if (objPtr->testCollision(t)) {
-				// snap(*objPtr, objPtr->getPosition(), objPtr->oldPosition, t);
 				objPtr->setPosition(sf::Vector2f(temp.x, oldPos.y));
+				if (objPtr->name == "player") {
+					Player* asPlayer = (Player*)objPtr;
+					asPlayer->velocity.y = 0.f;
+					asPlayer->canJump = true;
+				}
 				break;
 			}
 		}

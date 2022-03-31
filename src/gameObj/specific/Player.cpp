@@ -7,7 +7,27 @@ Player::Player(std::string name)
 void Player::update() {
 	sf::Vector2f test = playerInput::getInputVector();
 	this->oldPosition = this->sprite.getPosition();
-	this->sprite.move(test * speed);
+	//this->sprite.move(test * speed);
+
+	velocity.x = 0.0f;
+
+	if (playerInput::getInputVector().x >= 1.f) {
+		velocity.x += speed;
+	}
+	if (playerInput::getInputVector().x <= -1.f) {
+		velocity.x -= speed;
+	}
+	if (playerInput::getInputVector().y <= -1.f && canJump) {
+		canJump = false;
+
+		velocity.y = -(1/util::InvSqrt(2.0f * defines::GRAVITY * jumpHeight));
+	}
+
+	velocity.y += defines::GRAVITY;
+
+	this->sprite.move(velocity);
+
+
 	GameObject::update();
 }
 

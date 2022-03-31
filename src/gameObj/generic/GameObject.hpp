@@ -5,6 +5,7 @@
 #include <SFML/Audio.hpp>
 #include "../../util.hh"
 #include "../../rendering/SpriteSheet.hpp"
+#include "../../defines.hh"
 
 class GameObject {
 protected:
