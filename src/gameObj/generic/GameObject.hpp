@@ -13,6 +13,7 @@ protected:
 public:
 	float speed;
 	std::string name;
+	sf::Vector2f oldPosition;
 
 	GameObject(std::string name);
 
@@ -20,8 +21,9 @@ public:
 	void draw(sf::RenderWindow& window);
 
 	bool testCollision(GameObject& obj);
+	bool testCollision(sf::FloatRect& rect);
 
-	sf::FloatRect getHitBox();
+	virtual sf::FloatRect getHitBox();
 	float getX();
 	float getY();
 	float getWidth();

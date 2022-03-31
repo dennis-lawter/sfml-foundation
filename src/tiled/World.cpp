@@ -111,10 +111,63 @@ World::World(std::string name) {
 	this->loadFromJson();
 }
 
+void World::testCollision() {
+	for ([[maybe_unused]] auto& [key, objPtr] : this->objs) {
+		sf::Vector2f idealPosition = objPtr->getPosition();
+		sf::Vector2f oldPos = objPtr->oldPosition;
+		objPtr->setPosition(sf::Vector2f(idealPosition.x, oldPos.y));
+		for (sf::FloatRect& t : this->staticCollision) {
+			if (objPtr->testCollision(t)) {
+				// snap(*objPtr, objPtr->getPosition(), objPtr->oldPosition, t);
+				objPtr->setPosition(oldPos);
+				break;
+			}
+		}
+		sf::Vector2f temp = objPtr->getPosition();
+		objPtr->setPosition(sf::Vector2f(temp.x, idealPosition.y));
+		for (sf::FloatRect& t : this->staticCollision) {
+			if (objPtr->testCollision(t)) {
+				// snap(*objPtr, objPtr->getPosition(), objPtr->oldPosition, t);
+				objPtr->setPosition(sf::Vector2f(temp.x, oldPos.y));
+				break;
+			}
+		}
+	}
+}
+
+void World::snap(GameObject &subject, sf::Vector2f currentPosition, sf::Vector2f oldPosition, sf::FloatRect &target){
+	float subjectWidth = subject.getWidth();
+	float subjectHeight = subject.getHeight();
+	float targetWidth = target.width;
+	float targetHeight = target.height;
+
+	sf::Vector2f targetPosition = {target.left, target.top};
+	sf::Vector2f distance = currentPosition - oldPosition;
+	if(distance.x < -this->precisionRounding) {
+		//right collision
+		currentPosition.x = (targetPosition.x+targetWidth+this->precisionRounding+subjectWidth/2.f);
+	}
+	else if(distance.x > this->precisionRounding) {
+		//left collision
+		currentPosition.x = (targetPosition.x-this->precisionRounding-subjectWidth/2.f);
+	}
+	else if(distance.y < -this->precisionRounding) {
+		//top collision
+		currentPosition.y = (targetPosition.y+targetHeight+this->precisionRounding+subjectHeight/2.f);
+	}
+	else if(distance.y > this->precisionRounding) {
+		//bottom collision
+		currentPosition.y = (targetPosition.y-this->precisionRounding-subjectHeight/2.f);
+	}
+
+	subject.setPosition(currentPosition);
+}
+
 void World::update() {
 	for (auto& [key, objPtr] : this->objs) {
 		objPtr->update();
 	}
+	testCollision();
 }
 
 void World::draw(sf::RenderWindow& window) {

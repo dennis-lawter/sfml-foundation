@@ -19,6 +19,10 @@ bool GameObject::testCollision(GameObject& obj) {
 	return getHitBox().intersects(obj.getHitBox());
 }
 
+bool GameObject::testCollision(sf::FloatRect& rect) {
+	return getHitBox().intersects(rect);
+}
+
 sf::FloatRect GameObject::getHitBox() {
 	return this->sprite.getGlobalBounds();
 }

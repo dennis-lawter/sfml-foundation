@@ -13,6 +13,9 @@ private:
 	const unsigned int MOST_SIGNIFICANT_BYTE = 0xFF000000;
 	const unsigned int THREE_LEAST_SIGNIFICANT_BYTES = 0x00FFFFFF;
 
+	const int precision = 10000;
+	const float precisionRounding = 1.0/precision;
+
 	std::string name;
 	unsigned int width = 0;
 	unsigned int height = 0;
@@ -21,12 +24,14 @@ private:
 
 	std::map<unsigned int, std::string> idToTileNames;
 	std::map<std::string, TileSet> tileSets;
-	
+
 	std::vector<Tile> tiles;
-	std::vector<sf::IntRect> staticCollision;
+	std::vector<sf::FloatRect> staticCollision;
 	std::map<unsigned int, GameObject*> objs;
 
 	void loadFromJson();
+	void testCollision();
+	void snap(GameObject &subject, sf::Vector2f currentPosition, sf::Vector2f oldPosition, sf::FloatRect &target);
 public:
 	World(std::string name);
 
