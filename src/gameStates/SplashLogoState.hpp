@@ -33,11 +33,11 @@ private:
 	const int PLAY_SOUND = 30;
 
 public:
-	SplashLogoState();
+	SplashLogoState(sf::RenderWindow& window);
 
 	void processInput(sf::Event& event);
-	void update(sf::RenderWindow& window);
-	void draw(sf::RenderWindow& window);
+	void update();
+	void draw();
 
 	virtual ~SplashLogoState();
 

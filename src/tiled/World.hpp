@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include "../assets/worlds.hh"
 #include "../rendering/Tile.hpp"
+#include "../rendering/Camera.hpp"
 #include "../gameObj/GameObjectFactory.hh"
 
 class World {
@@ -21,6 +22,8 @@ private:
 	unsigned int height = 0;
 	unsigned int tileWidth = 0;
 	unsigned int tileHeight = 0;
+	sf::RenderWindow& window;
+	sf::RectangleShape background;
 
 	std::map<unsigned int, std::string> idToTileNames;
 	std::map<std::string, TileSet> tileSets;
@@ -29,14 +32,18 @@ private:
 	std::vector<sf::FloatRect> staticCollision;
 	std::map<unsigned int, GameObject*> objs;
 
+	Player* playerPtr = nullptr;
+
+	Camera camera;
+
 	void loadFromJson();
 	void testCollision();
 	void snap(GameObject &subject, sf::Vector2f currentPosition, sf::Vector2f oldPosition, sf::FloatRect &target);
 public:
-	World(std::string name);
+	World(std::string name, sf::RenderWindow& window);
 
 	void update();
-	void draw(sf::RenderWindow& window);
+	void draw();
 
 	virtual ~World();
 };

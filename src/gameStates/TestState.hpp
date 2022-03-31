@@ -9,11 +9,11 @@ class TestState : public GameState {
 private:
 	World world;
 public:
-	TestState();
+	TestState(sf::RenderWindow& window);
 
 	void processInput(sf::Event& event);
-	void update(sf::RenderWindow& window);
-	void draw(sf::RenderWindow& window);
+	void update();
+	void draw();
 
 	virtual ~TestState();
 };

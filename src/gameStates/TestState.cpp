@@ -1,7 +1,8 @@
 #include "TestState.hpp"
 
-TestState::TestState()
-: world("intro") {
+TestState::TestState(sf::RenderWindow& window)
+: GameState(window)
+, world("intro", window) {
 }
 
 void TestState::processInput(sf::Event& event) {
@@ -18,12 +19,12 @@ void TestState::processInput(sf::Event& event) {
 	// });
 }
 
-void TestState::update(sf::RenderWindow& window) {
+void TestState::update() {
 	world.update();
 }
 
-void TestState::draw(sf::RenderWindow& window) {
-	world.draw(window);
+void TestState::draw() {
+	world.draw();
 }
 
 TestState::~TestState() {

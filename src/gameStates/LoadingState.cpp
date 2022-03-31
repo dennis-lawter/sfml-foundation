@@ -1,6 +1,7 @@
 #include "LoadingState.hpp"
 
-LoadingState::LoadingState() {
+LoadingState::LoadingState(sf::RenderWindow& window)
+: GameState(window) {
 	this->defenderSil = util::createConvexShape({5,0,1,0,1,1,0,1,0,6,1,6,1,5,2,5,2,6,4,6,4,5,5,5,5,6,6,6,6,1,5,1});
 	this->defenderSil.setFillColor(sf::Color(0xCC0066ff));
 	this->defenderSil.setScale(sf::Vector2f(5.f, 5.f));
@@ -17,7 +18,7 @@ LoadingState::LoadingState() {
 void LoadingState::processInput(sf::Event& event) {
 }
 
-void LoadingState::update(sf::RenderWindow& window) {
+void LoadingState::update() {
 	if (this->timer >= this->LOAD_MIN) {
 		if (
 			textures::loaded &&
@@ -34,7 +35,7 @@ void LoadingState::update(sf::RenderWindow& window) {
 	this->timer++;
 }
 
-void LoadingState::draw(sf::RenderWindow& window) {
+void LoadingState::draw() {
 	window.draw(this->defenderSil);
 }
 

@@ -1,6 +1,7 @@
 #include "SplashLogoState.hpp"
 
-SplashLogoState::SplashLogoState() {
+SplashLogoState::SplashLogoState(sf::RenderWindow& window)
+: GameState(window) {
 	initialColor = sf::Color(0xFFFFFF00);
 	finalColor = sf::Color(0xFFFFFFFF);
 	currentColor = initialColor;
@@ -35,7 +36,7 @@ void SplashLogoState::processInput(sf::Event& event) {
 
 }
 
-void SplashLogoState::update(sf::RenderWindow& window) {
+void SplashLogoState::update() {
 	if (timer == PLAY_SOUND) {
 		sound.play();
 	}
@@ -77,7 +78,7 @@ void SplashLogoState::update(sf::RenderWindow& window) {
 	timer++;
 }
 
-void SplashLogoState::draw(sf::RenderWindow& window) {
+void SplashLogoState::draw() {
 	window.draw(logo);
 	bitonic.draw(window);
 	us.draw(window);
