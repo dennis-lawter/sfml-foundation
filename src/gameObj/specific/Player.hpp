@@ -7,9 +7,10 @@
 
 class Player : public GameObject {
 private:
-	float speed = 5.f;
+	float speed = 1.9f;
 public:
 	Player(std::string);
+	sf::FloatRect getHitBox();
 	void update();
 	virtual ~Player();
 };
