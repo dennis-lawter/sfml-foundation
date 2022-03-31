@@ -24,11 +24,11 @@ namespace particleGroup {
 	}
 
 	void update() {
-		for (auto& particle : particleObjects) {
-			particle.update();
+		for (auto& particleObj : particleObjects) {
+			particleObj.update();
 		}
-		for (auto& particle : particleTexts) {
-			particle.update();
+		for (auto& particleTxt : particleTexts) {
+			particleTxt.update();
 		}
 
 		for (auto iter = particleObjects.begin(); iter != particleObjects.end(); iter++) {

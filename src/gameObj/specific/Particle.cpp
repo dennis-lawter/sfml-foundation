@@ -39,7 +39,7 @@ Particle::~Particle() {
 ParticleText::ParticleText(ParticleAttributeList attributes, std::string text)
 	:Particle(attributes) {
 		this->text.setFillColor(attributes.initialColor);
-		// this->text.setFont(resources::font);
+		this->text.setFont(fonts::assets["press-start-2p"]);
 		this->text.setCharacterSize(80);
 		this->text.setScale(.05f, .05f);
 		this->text.setString(text);
@@ -51,12 +51,12 @@ ParticleText::ParticleText(ParticleAttributeList attributes, std::string text)
 
 void ParticleText::update() {
 	Particle::update();
-	text.setFillColor(currentColor());
-	text.setPosition(position);
+	this->text.setFillColor(currentColor());
+	this->text.setPosition(position);
 }
 
 void ParticleText::draw(sf::RenderWindow& window) {
-	window.draw(text);
+	window.draw(this->text);
 }
 
 ParticleText::~ParticleText() {
