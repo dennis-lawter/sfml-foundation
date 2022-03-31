@@ -6,7 +6,7 @@
 
 class LoadingState : public GameState {
 private:
-	const int LOAD_MIN = 60;
+	const int LOAD_MIN = 30;
 	sf::RectangleShape loadingRectangle;
 	sf::ConvexShape defenderSil;
 	int timer = 0;

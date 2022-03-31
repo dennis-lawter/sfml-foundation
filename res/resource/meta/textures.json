@@ -13,5 +13,8 @@
     },
     "bitonicsoftlogo": {
         "file": "resource/textures/bitonicsoftlogo.png"
+    },
+    "collision": {
+        "file": "resource/textures/collision.png"
     }
 }
