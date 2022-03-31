@@ -78,6 +78,11 @@ void World::loadFromJson() {
 				float y = objectJson["y"];
 
 				this->objs[id] = GameObjectFactory::create(objectName);
+				if (objectName == "player") {
+					this->playerPtr = (Player*)this->objs[id];
+					this->camera.setFollowedObject(this->playerPtr);
+				}
+
 				sf::FloatRect rect = this->objs[id]->getHitBox();
 				// adjust for tilded using bottom left px origin
 				x += rect.width / 2.f;
@@ -106,9 +111,16 @@ void World::loadFromJson() {
 	}
 }
 
-World::World(std::string name) {
+World::World(std::string name, sf::RenderWindow& window)
+	: window(window) {
 	this->name = name;
 	this->loadFromJson();
+	this->background.setFillColor(sf::Color::Black);
+	this->background.setPosition(-defines::WIDTH, -defines::HEIGHT);
+	int bgWidth = this->width * this->tileWidth + defines::WIDTH * 2;
+	int bgHeight = this->height * this->tileHeight + defines::HEIGHT * 2;
+	this->background.setSize(sf::Vector2f(bgWidth, bgHeight));
+	this->camera.setWindow(&window);
 }
 
 void World::update() {
@@ -117,7 +129,13 @@ void World::update() {
 	}
 }
 
-void World::draw(sf::RenderWindow& window) {
+void World::draw() {
+	if (this->playerPtr) {
+		sf::View view = window.getView();
+		view.setCenter(this->playerPtr->getPosition());
+		window.setView(view);
+	}
+	this->window.draw(background);
 	for (Tile& tile : this->tiles) {
 		window.draw(tile);
 	}

@@ -15,10 +15,14 @@ public:
 	};
 
 	bool isEnding = false;
+	sf::RenderWindow& window;
+
+	GameState(sf::RenderWindow& window)
+	:window(window) {};
 
 	virtual void processInput(sf::Event& event) = 0;
-	virtual void update(sf::RenderWindow& window) = 0;
-	virtual void draw(sf::RenderWindow& window) = 0;
+	virtual void update() = 0;
+	virtual void draw() = 0;
 
 	virtual ~GameState() {}
 };

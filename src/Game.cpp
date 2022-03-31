@@ -9,7 +9,7 @@ Game::Game() {
 }
 
 void Game::run() {
-	this->gameState = new LoadingState();
+	this->gameState = new LoadingState(this->window);
 	this->currentGameState = GameState::Loading;
 	this->initializeWindow();
 	this->gameLoop();
@@ -91,7 +91,7 @@ void Game::processInputLoop() {
 }
 
 void Game::update() {
-	this->gameState->update(window);
+	this->gameState->update();
 	particleGroup::update();
 }
 
@@ -100,12 +100,12 @@ void Game::processState() {
 		switch (this->currentGameState) {
 		case GameState::Loading:
 			delete this->gameState;
-			this->gameState = new SplashLogoState();
+			this->gameState = new SplashLogoState(this->window);
 			this->currentGameState = GameState::SplashLogo;
 			break;
 		case GameState::SplashLogo:
 			delete this->gameState;
-			this->gameState = new TestState();
+			this->gameState = new TestState(this->window);
 			this->currentGameState = GameState::Test;
 			break;
 		case GameState::Test:
@@ -121,7 +121,7 @@ void Game::draw() {
 	this->window.clear(this->screenClearColor);
 	this->window.draw(this->background);
 
-	this->gameState->draw(this->window);
+	this->gameState->draw();
 	particleGroup::draw();
 
 	this->window.display();
