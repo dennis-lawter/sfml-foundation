@@ -145,7 +145,9 @@ void World::testCollision() {
 				if (objPtr->name == "player") {
 					Player* asPlayer = (Player*)objPtr;
 					asPlayer->velocity.y = 0.f;
-					asPlayer->canJump = true;
+					if (t.top > asPlayer->getY()) {
+						asPlayer->canJump = true;
+					}
 				}
 				break;
 			}

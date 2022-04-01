@@ -14,6 +14,7 @@ void Player::update() {
 	if (velocity.y > 0.02f) {
 		canJump = false;
 	}
+	
 	if (playerInput::getInputVector().x >= 1.f) {
 		velocity.x += speed;
 	}
