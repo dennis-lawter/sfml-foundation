@@ -9,13 +9,13 @@ namespace playerInput {
 	sf::Vector2f inputVector = { 0.f, 0.f };
 
 	sf::Vector2f getInputVector() {
-		float magnitudeSquared = inputVector.x * inputVector.x + inputVector.y * inputVector.y;
-		if (magnitudeSquared > 1) {
-			float invMagnitude = util::InvSqrt(magnitudeSquared);
-			return inputVector * invMagnitude;
-		} else {
+		// float magnitudeSquared = inputVector.x * inputVector.x + inputVector.y * inputVector.y;
+		// if (magnitudeSquared > 1) {
+		// 	float invMagnitude = util::InvSqrt(magnitudeSquared);
+		// 	return inputVector * invMagnitude;
+		// } else {
 			return inputVector;
-		}
+		// }
 	}
 
 	void inputSideScroll(sf::Event& event) {
