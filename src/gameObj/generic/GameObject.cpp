@@ -8,7 +8,9 @@ GameObject::GameObject(std::string name)
 }
 
 void GameObject::draw(sf::RenderWindow& window) {
-	window.draw(this->sprite);
+	if (this->visible) {
+		window.draw(this->sprite);
+	}
 }
 
 void GameObject::update() {
@@ -49,6 +51,10 @@ sf::Vector2f GameObject::getPosition() {
 
 void GameObject::setPosition(sf::Vector2f pos) {
 	sprite.setPosition(pos);
+}
+
+bool GameObject::hasCustomProperty(std::string name) {
+	return this->customProperties.contains(name);
 }
 
 nlohmann::json GameObject::getCustomProperty(std::string name) {

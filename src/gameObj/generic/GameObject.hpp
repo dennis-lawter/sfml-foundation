@@ -12,6 +12,7 @@ protected:
 	SpriteSheet sprite;
 	nlohmann::json customProperties;
 public:
+	bool visible = true;
 	float speed;
 	std::string name;
 	sf::Vector2f oldPosition;
@@ -33,6 +34,7 @@ public:
 	sf::Vector2f getPosition();
 	void setPosition(sf::Vector2f pos);
 
+	bool hasCustomProperty(std::string name);
 	nlohmann::json getCustomProperty(std::string name);
 	void setCustomProperty(std::string name, nlohmann::json value);
 

@@ -72,13 +72,14 @@ void World::loadFromJson() {
 			}
 		} else if (layerJson["type"] == "objectgroup") {
 			for (nlohmann::json& objectJson : layerJson["objects"]) {
-				std::string objectName = objectJson["name"];
+				std::string objectType = objectJson["type"];
+				bool visible = objectJson["visible"];
 				unsigned int id = objectJson["id"];
 				float x = objectJson["x"];
 				float y = objectJson["y"];
 
-				this->objs[id] = GameObjectFactory::create(objectName);
-				if (objectName == "player") {
+				this->objs[id] = GameObjectFactory::create(objectType);
+				if (objectType == "player") {
 					this->playerPtr = (Player*)this->objs[id];
 					this->camera.setFollowedObject(this->playerPtr);
 				}
@@ -88,6 +89,8 @@ void World::loadFromJson() {
 				x += rect.width / 2.f;
 				y -= rect.width / 2.f;
 				this->objs[id]->setPosition(sf::Vector2f(x, y));
+
+				this->objs[id]->visible = visible;
 
 				if (objectJson.contains("properties")) {
 					for (nlohmann::json& propertyJson : objectJson["properties"]) {
